@@ -1,0 +1,2 @@
+/* Click&Clean for Google Chrome - HOTCLEANER.COM - Copyright (c) 2021 Vlad & Serge Strukoff. All Rights Reserved. */
+:host{display:block!important;position:fixed!important;bottom:7px!important;left:13px!important;width:16px!important;height:16px!important;z-index:9007199254740991!important;cursor:pointer!important;overflow:hidden!important}svg{border-radius:3px;opacity:1;transition:opacity 1.5s}#__path{fill:#616161}svg:hover #__path{fill:#d12c20}svg[hide]{opacity:0}svg:hover{opacity:1}@media print{svg{display:none}
