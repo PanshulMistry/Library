@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="com.library.bean.Book"%>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -45,6 +46,7 @@
 
 </div>
 <!--WRAPPER START-->
+<%Book book=(Book)request.getAttribute("bookdetails"); %>
 <div class="wrapper kode-header-class-3">
 	<header class="header-3">
     	<div class="container">
@@ -156,21 +158,21 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="kode-thumb">
-                                    <img src="images/book-detail.jpg" alt="">
+                                    <img src="data:image/jpg;base64,<%=book.getImgstring()%>" alt="">
                                 </div>
                             </div>
                             <div class="col-md-7">
                                 <div class="kode-text">
-                                	<h2>Apllication Health and Well-Beign</h2>
+                        /        	<h2><%=book.getBook_name() %></h2>
                                     <div class="product-price">
-                                        <p>Author : <span class="color">Robert L. Lukdke</span></p>
+                                        <p>Author : <span class="color"><%=book.getBook_author()%></span></p>
                                     </div>
                                     <div class="book-text">
-                                    	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
+<!--                                     	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p> -->
                                     </div>
                                     <div class="book-text">
-                                        <p>Author: Daniel Abraham</p>
-                                        <p>Publisher: Journal inc</p>
+                                        <p>Author: <%=book.getBook_author() %></p>
+                                        <p>Publisher: <%=book.getPublish_date() %></p>
                                     </div>
                                     <a href="#" class="add-to-cart">Lend</a>
                                 </div>
@@ -189,10 +191,8 @@
                 <!--TAB PANEL START-->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" >
-                        <p>Cum altera mandamus in, mea verear disputationi et. Vel regione discere ut, legere expetenda ut eos. In nam nibh invenire similique. Atqui mollis ea his, ius graecis accommodare te. No eam tota nostrum cotidieque. Est cu nibh clita. Sed an nominavi maiestatis, et duo corrumpit constituto, duo id rebum lucilius. Te eam iisque deseruisse, ipsum euismod his at. Eu putent habemus voluptua sit, sit cu rationibus scripserit, modus voluptaria ex per. Aeque dicam consulatu eu his, probatus neglegentur disputationi sit et. Ei nec ludus epicuri petentium, vis appetere maluisset ad. Et hinc exerci utinam cum. Sonet saperet nominavi est at, vel eu sumo tritani. Cum ex minim legere.</p>
-                        <p>Sed an nominavi maiestatis, et duo corrumpit constituto, duo id rebum lucilius. Te eam iisque deseruisse, ipsum euismod his at. Eu putent habemus voluptua sit, sit cu rationibus scripserit, modus voluptaria ex per. Aeque dicam consulatu eu his, probatus neglegentur disputationi sit et. Ei nec ludus epicuri petentium, vis appetere maluisset ad. Et hinc exerci utinam cum. Sonet saperet nominavi est at, vel eu sumo tritani. Cum ex minim legere.</p>
-                        <p>Ipsum euismod his at. Eu putent habemus voluptua sit, sit cu rationibus scripserit, modus voluptaria ex per. Aeque dicam consulatu eu his, probatus neglegentur disputationi sit et. Ei nec ludus epicuri petentium, vis appetere maluisset ad. Et hinc exerci utinam cum. Sonet saperet nominavi est at, vel eu sumo tritani. Cum ex minim legere.</p>
-                    </div>
+                      <p><%=book.getBook_description() %></p>
+                     </div> 
                     <div role="tabpanel" class="tab-pane fade" id="reviews">
                         <div class="kode-comments">
                             <ul>

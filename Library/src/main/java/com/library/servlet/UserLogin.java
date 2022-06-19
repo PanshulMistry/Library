@@ -15,15 +15,15 @@ import com.library.service.LibraryService;
 import com.library.service.impl.LibraryServiceImpl;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class UserLogin
  */
-public class LoginServlet extends HttpServlet {
+public class UserLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public UserLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,13 +35,12 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-	LibraryService ls=new LibraryServiceImpl();
+	LibraryService ls = new LibraryServiceImpl();
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
 		String email=request.getParameter("email");
 		String pass=request.getParameter("pass");
 		System.out.println("entered details "+email+" "+pass);
@@ -54,12 +53,7 @@ public class LoginServlet extends HttpServlet {
 		Login login2 = new Login();
 		try
 		{
-//			try {
-				login2=ls.userLogin(login);
-//			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+			login2=ls.userLogin(login);
 			System.out.println("Database user Email:"+login2.getLogin_email());
 			System.out.println("Database Password:"+login2.getLogin_pass());
 			if(login2.getLogin_email()!=null && login2.getLogin_pass()!=null)
@@ -77,7 +71,6 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		catch(SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

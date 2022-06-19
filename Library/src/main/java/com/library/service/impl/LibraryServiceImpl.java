@@ -62,6 +62,16 @@ public class LibraryServiceImpl implements LibraryService{
 		return login2;
 
 	}
+
+	public Book getBookDetails(int bookId) throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = getTheConnection();
+		System.out.println("Service BookID:"+bookId);
+		Book book = new Book();
+		book = ld.getBookDetails(connection, bookId);
+		return book;
+		
+	}
 	
 	
 

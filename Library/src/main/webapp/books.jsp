@@ -290,7 +290,7 @@
 </div>
                                 <p><%=b.getBook_author()%></p>
 <!--                                 <p class="price">$224.20</p> -->
-<!--                                 <a href="#" class="add-to-cart">Add To Cart</a> -->
+                                <a href="BookDetail?bookid=<%=b.getBook_id()%>" class="add-to-cart">Lend</a>
                             </div>
                         </div>
                     </div>

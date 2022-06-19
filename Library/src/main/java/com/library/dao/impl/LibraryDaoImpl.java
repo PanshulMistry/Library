@@ -64,12 +64,6 @@ public class LibraryDaoImpl implements LibraryDao{
 		System.out.println("Dao ends.");
 		if (resultSet != null) {
 			while (resultSet.next()) {
-//				login.setLogin_id(resultSet.getInt("login_id"));
-//				login.setLogin_email(resultSet.getString("login_email"));
-//				login.setLogin_pass(resultSet.getString("login_password"));
-//				login.setMobile_number(resultSet.getString("mobile_number"));
-//				login.setUser_fname(resultSet.getString("user_fname"));
-//				login.setUser_lname(resultSet.getString("user_lname"));
 				email = resultSet.getString("login_email");
 				pass = resultSet.getString("login_password");
 				if(email.equalsIgnoreCase(login.getLogin_email()) && pass.equalsIgnoreCase(login.getLogin_pass()))
@@ -84,6 +78,34 @@ public class LibraryDaoImpl implements LibraryDao{
 		connection.close();
 
 		return login2;
+	}
+
+	public Book getBookDetails(Connection connection, int bookId) throws SQLException {
+		// TODO Auto-generated method stub
+		String selQuery="select * from book_table where book_id=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+		preparedStatement.setInt(1, bookId);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		Book book = new Book();
+		if (resultSet != null) {
+			while (resultSet.next()) {
+				book.setBook_id(resultSet.getInt("book_id"));
+				book.setBook_name(resultSet.getString("book_name"));
+				book.setBook_author(resultSet.getString("book_author"));
+				book.setPublish_date(resultSet.getDate("publish_date"));
+				book.setBook_description(resultSet.getString("book_description"));				
+				byte[] imagedata=resultSet.getBytes("book_img");
+				if(null!=imagedata && imagedata.length>0)
+				{
+					String imgstring=Base64.getEncoder().encodeToString(imagedata);
+					book.setImgstring(imgstring);
+				}
+			}
+		}
+		resultSet.close();
+		connection.close();
+		return book;
+		
 	}
 	
 	

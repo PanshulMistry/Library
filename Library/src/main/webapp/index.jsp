@@ -112,15 +112,6 @@
 										<li><a href="author-detail.jsp">Authors Detail</a></li>										
 									</ul>
 								</li>
-								<li class="last"><a href="#">Events</a>
-									<ul>
-										<li><a href="#">Event 2 Column</a></li>
-										<li><a href="#">Event 3 Column</a></li>
-										<li><a href="#">Event Single</a></li>
-										<li><a href="#">Event Detail</a></li>
-									</ul>
-								</li>
-								
 								<li class="last"><a href="#">Pages</a>
 									<ul class="children">
 										<li><a href="error-404.jsp">Error 404</a></li>
@@ -135,6 +126,7 @@
 									</ul>
 								</li>
 								<li class="last"><a href="contact-us.jsp">Contact Us</a></li>
+								<li class="last"><a href="LogoutUser">Logout</a></li>
 							</ul>
 						</div>
 						<div id="kode-responsive-navigation" class="dl-menuwrapper">
@@ -165,14 +157,6 @@
 										<li><a href="author-detail.html">Authors Detail</a></li>										
 									</ul>
 								</li>
-								<li class="menu-item kode-parent-menu last"><a href="#">Events</a>
-									<ul class="dl-submenu">
-										<li><a href="events-2column.html">Event 2 Column</a></li>
-										<li><a href="events-3column.html">Event 3 Column</a></li>
-										<li><a href="event-full.html">Event Single</a></li>
-										<li><a href="event-detail.html">Event Detail</a></li>
-									</ul>
-								</li>
 								<li class="menu-item kode-parent-menu last"><a href="#">Pages</a>
 									<ul class="dl-submenu">
 										<li><a href="error-404.html">Error 404</a></li>
@@ -187,6 +171,7 @@
 									</ul>
 								</li>
 								<li class="last"><a href="contact-us.html">Contact Us</a></li>
+								<li class="last"><a href="LogoutUser">Logout</a></li>
 							</ul>
 						</div>
                     </div>

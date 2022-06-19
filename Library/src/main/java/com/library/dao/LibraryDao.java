@@ -14,4 +14,5 @@ public interface LibraryDao {
 
 	public Login validateUser(Connection connection, Login login) throws SQLException;
  
+	public Book getBookDetails(Connection connection,int bookId) throws SQLException;
 }

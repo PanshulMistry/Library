@@ -30,7 +30,7 @@
         <div class="form-container">
           <div class="controls">
           <div class="form-inner">
-            <form action="LoginServlet" class="login" method="post">
+            <form action="UserLogin" class="login" method="post">
               <div class="field">
                 <input type="text" name="email" id="email" placeholder="Email Address" required>
               </div>
