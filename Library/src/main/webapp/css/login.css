@@ -6,9 +6,9 @@
   font-family: 'Poppins', sans-serif;
 }
 html,body{
-  display: inline-block;
-  height: 100%;
-  width: 100%;
+   display: inline-block; 
+/*   height: 100%; */
+/*   width: 100%; */
   place-items: center;
   background: -webkit-linear-gradient(left, #003366,#004080,#0059b3
 , #0073e6);
@@ -16,6 +16,7 @@ html,body{
 body{
   height: 90%;
   width: 90%;
+  padding-left: 100px;
 }
 ::selection{
   background: #1a75ff;
@@ -44,7 +45,7 @@ body{
   position: relative;
   display: flex;
   height: 500px;
-  width: 100%;
+/*   width: 100%; */
   overflow: hidden;
   margin: 30px 0 10px 0;
   justify-content: space-between;

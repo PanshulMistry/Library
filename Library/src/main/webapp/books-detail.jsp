@@ -77,7 +77,7 @@
 								<li><a href="about-us.jsp">About Us</a></li>
 								<li><a href="BooksShow">Our Books</a>
 									<ul>
-										<li><a href="books-detail.jsp">Book</a></li>                                
+										<li><a href="BookDetail">Book</a></li>                                
 									</ul>
 								</li>
 								<li><a href="authors.jsp">Authors</a>
@@ -99,7 +99,7 @@
 								<li><a href="about-us.jsp">About Us</a></li>
 								<li><a href="BooksShow">Our Books</a>
 									<ul>
-										<li><a href="books-detail.jsp">Book</a></li>                                
+										<li><a href="BookDetail">Book</a></li>                                
 									</ul>
 								</li>
 								<li><a href="authors.jsp">Authors</a>

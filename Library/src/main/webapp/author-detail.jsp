@@ -85,10 +85,10 @@
 								</li>
 								
 								<li><a href="about-us.jsp">About Us</a></li>
-								<li><a href="books.jsp">Our Books</a>
+								<li><a href="BooksShow">Our Books</a>
 									<ul>
 										<li><a href="books3-sidebar.jsp">Book With Sidebar</a></li>
-										<li><a href="books-detail.jsp">Book Detail</a></li>                                
+										<li><a href="BookDetail">Book Detail</a></li>                                
 									</ul>
 								</li>
 								<li><a href="blog.jsp">Blog</a>
@@ -116,14 +116,6 @@
 								<li class="last"><a href="#">Pages</a>
 									<ul class="children">
 										<li><a href="error-404.jsp">Error 404</a></li>
-										<li><a href="#">Comming Soon</a></li>
-										<li class="last"><a href="gallery-2col.html">Gallery</a>
-											<ul>
-												<li><a href="gallery-2col.html">Gallery 2 Col</a></li>
-												<li><a href="gallery-3col.html">Gallery 3 Col</a></li>
-												<li><a href="gallery-4col.html">Gallery 4 Col</a></li>    
-											</ul>
-										</li>
 									</ul>
 								</li>
 								<li class="last"><a href="contact-us.jsp">Contact Us</a></li>

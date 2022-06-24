@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -63,115 +61,52 @@
                     <div class="col-md-9">
                     	<div class="top-strip">
                             <div class="pull-left">
-                                <p>Welcome to Library theme</p>
+                                <p>Welcome To Library</p>
                             </div>
                             <div class="social-icon">
-                                <a href="mailto:info@library-theme.com" class="pull-left">info@library-theme.com</a>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>                      
-                                </ul>
+                                <a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
                             </div>
                         </div>
+                        
                     	<div class="kode-navigation">
 						   <ul>
-								<li><a href="index.jsp">Home</a>
-									<ul>
-										<li><a href="index.jsp">Home page 1</a></li>
-									</ul>
+								<li><a href="homepage.html" >Home</a>
 								</li>
 								
-								<li><a href="about-us.jsp">About Us</a></li>
-								<li><a href="books.jsp">Our Books</a>
+								<li><a href="about-us.html">About Us</a></li>
+								<li><a href="books.html">Our Books</a>
 									<ul>
-										<li><a href="books3-sidebar.jsp">Book With Sidebar</a></li>
-										<li><a href="books-detail.jsp">Book Detail</a></li>                                
+										<li><a href="books-detail.html">Book</a></li>                                
 									</ul>
 								</li>
-								<li><a href="blog.jsp">Blog</a>
+								<li><a href="authors.html">Authors</a>
 									<ul>
-										<li><a href="#">Blog 2 Column</a></li>
-										<li><a href="#">Blog Full</a></li>
-										<li><a href="#">Blog Detail</a></li>
+										<li><a href="authors.html">Authors</a></li>
+										<li><a href="author-detail.html">Authors Detail</a></li>										
 									</ul>
-								</li>
-								<li><a href="authors.jsp">Authors</a>
-									<ul>
-										<li><a href="authors.jsp">Authors</a></li>
-										<li><a href="author-detail.jsp">Authors Detail</a></li>										
-									</ul>
-								</li>
-								<li class="last"><a href="#">Events</a>
-									<ul>
-										<li><a href="#">Event 2 Column</a></li>
-										<li><a href="#">Event 3 Column</a></li>
-										<li><a href="#">Event Single</a></li>
-										<li><a href="#">Event Detail</a></li>
-									</ul>
-								</li>
-								
-								<li class="last"><a href="#">Pages</a>
-									<ul class="children">
-										<li><a href="error-404.jsp">Error 404</a></li>
-										<li><a href="#">Comming Soon</a></li>
-										<li class="last"><a href="gallery-2col.html">Gallery</a>
-											<ul>
-												<li><a href="gallery-2col.html">Gallery 2 Col</a></li>
-												<li><a href="gallery-3col.html">Gallery 3 Col</a></li>
-												<li><a href="gallery-4col.html">Gallery 4 Col</a></li>    
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="last"><a href="contact-us.jsp">Contact Us</a></li>
+								</li>			
+								<li class="last"><a href="contact-us.html">Contact Us</a></li>
 							</ul>
 						</div>
+                        
 						<div id="kode-responsive-navigation" class="dl-menuwrapper">
 							<button class="dl-trigger">Open Menu</button>
-							<ul class="dl-menu">
-								<li class="menu-item kode-parent-menu"><a href="index.html">Home</a>
-									<ul class="dl-submenu">
-										<li><a href="index-1.html">Home page 1</a></li>
-									</ul>
+                            <ul class="dl-menu">
+								<li><a href="homepage.html" >Home</a>
 								</li>
+								
 								<li><a href="about-us.html">About Us</a></li>
-								<li class="menu-item kode-parent-menu"><a href="books.html">Our Books</a>
-									<ul class="dl-submenu">
-										<li><a href="books3-sidebar.html">Book With Sidebar</a></li>
-										<li><a href="books-detail.html">Book Detail</a></li>                                
+								<li><a href="books.html">Our Books</a>
+									<ul>
+										<li><a href="books-detail.html">Book</a></li>                                
 									</ul>
 								</li>
-								<li class="menu-item kode-parent-menu"><a href="blog.html">Blog</a>
-									<ul class="dl-submenu">
-										<li><a href="blog-2column.html">Blog 2 Column</a></li>
-										<li><a href="blog-full.html">Blog Full</a></li>
-										<li><a href="blog-detail.html">Blog Detail</a></li>
+								<li><a href="authors.html">Authors</a>
+									<ul>
+										<li><a href="authors.html">Authors</a></li>
+										<li><a href="author-detail.html">Authors Detail</a></li>										
 									</ul>
-								</li>
-								<li><a href="authors.html">Authors</a></li>
-								<li class="menu-item kode-parent-menu last"><a href="#">Events</a>
-									<ul class="dl-submenu">
-										<li><a href="events-2column.html">Event 2 Column</a></li>
-										<li><a href="events-3column.html">Event 3 Column</a></li>
-										<li><a href="event-full.html">Event Single</a></li>
-										<li><a href="event-detail.html">Event Detail</a></li>
-									</ul>
-								</li>
-								<li class="menu-item kode-parent-menu last"><a href="#">Pages</a>
-									<ul class="dl-submenu">
-										<li><a href="error-404.html">Error 404</a></li>
-										<li><a href="coming-soon.html">Comming Soon</a></li>
-										<li class="menu-item kode-parent-menu last"><a href="gallery-2col.html">Gallery</a>
-											<ul class="dl-submenu">
-												<li><a href="gallery-2col.html">Gallery 2 Col</a></li>
-												<li><a href="gallery-3col.html">Gallery 3 Col</a></li>
-												<li><a href="gallery-4col.html">Gallery 4 Col</a></li>    
-											</ul>
-										</li>
-									</ul>
-								</li>
+								</li>			
 								<li class="last"><a href="contact-us.html">Contact Us</a></li>
 							</ul>
 						</div>
@@ -186,88 +121,20 @@
     	<div class="kode-page-heading">
         	<h2>Photo Gallery</h2>
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Library</a></li>
-              <li class="active">Gallery</li>
+              <li><a href="homepage.html">Home</a></li>
+              <li class="active">Contact Us</li>
             </ol>
         </div>
     </div>
     <!--BANNER END-->
     <div class="search-section">
         <div class="container">
-			<!-- Nav tabs -->
-			  <ul class="nav nav-tabs" role="tablist">
-				<li role="presentation"><a href="#Basic" aria-controls="Basic" role="tab" data-toggle="tab">Basic</a></li>
-				<li role="presentation" class="active"><a href="#Author" aria-controls="Author" role="tab" data-toggle="tab">Author</a></li>
-				<li role="presentation"><a href="#Publications" aria-controls="Publications" role="tab" data-toggle="tab">Publications</a></li>
-			  </ul>
-			
-			  <!-- Tab panes -->
-			  <div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="Basic">
-					<div class="form-container">
-						<div class="row">
-							<div class="col-md-3 col-sm-4">
-								<input type="text" placeholder="First Name">
-							</div>
-							<div class="col-md-3 col-sm-4">
-								<input type="text" placeholder="Middle Name">
-							</div>
-							<div class="col-md-3 col-sm-4">
-								<input type="text" placeholder="Last Name">
-							</div>
-							<div class="col-md-3 col-sm-12">
-								<button>Search Author</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div role="tabpanel" class="tab-pane" id="Author">
-					<div class="form-container">
-						<div class="row">
-							<div class="col-md-3 col-sm-4">
-								<input type="text" placeholder="First Name">
-							</div>
-							<div class="col-md-3 col-sm-4">
-								<input type="text" placeholder="Middle Name">
-							</div>
-							<div class="col-md-3 col-sm-4">
-								<input type="text" placeholder="Last Name">
-							</div>
-							<div class="col-md-3 col-sm-12">
-								<button>Search Author</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div role="tabpanel" class="tab-pane" id="Publications">
-					<div class="form-container">
-						<div class="row">
-							<div class="col-md-3 col-sm-4">
-								<input type="text" placeholder="First Name">
-							</div>
-							<div class="col-md-3 col-sm-4">
-								<input type="text" placeholder="Middle Name">
-							</div>
-							<div class="col-md-3 col-sm-4">
-								<input type="text" placeholder="Last Name">
-							</div>
-							<div class="col-md-3 col-sm-12">
-								<button>Search Author</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			  </div>
+			 
 		</div>
     </div>
     <!--CONTENT START-->
    <div class="kode-content padding-tb-50">
     	<div class="container">
-            <!--LOCATION MAP START-->
-            <div class="location-map">
-                <div class="map-canvas" id="map-canvas"></div>
-            </div>
             <!--LOCATION MAP END-->
             <div class="row">
                 <div class="col-md-8">
@@ -297,13 +164,6 @@
 										<textarea name="message" id="message" placeholder="add your comment"></textarea>
 										<label for="message">Message</label>
 									</div>
-								</div>
-								<div class="col-md-6">
-									<p class="input-block kf_capcha">
-										<label for="verify">Are you human?</label>
-										<iframe src="inc/capcha_page.php" height="29" width="80" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" class="capcha_image_frame" name="capcha_image_frame"></iframe>
-										<input class="verify" type="text" id="verify" name="verify" />
-									</p>
 								</div>						
 								<div class="col-md-6">
 									<p class="kd-button kf_submit widget-newslatter pull-right"><input class="thbg-color" type="submit" value="Submit Comments"></p>
@@ -322,43 +182,14 @@
                         <ul>
                            <li><i class="fa fa-map-marker"></i>Nemo enim ipsam voluptatem quia voluptas sit</li>
                            <li><i class="fa fa-phone"></i>(25) 82 800 80</li>
-                           <li><i class="fa fa-envelope"></i><a href="mailto:info@librarytheme.com">info@librarytheme.com</a></li> 
+                           <li><i class="fa fa-envelope"></i><a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a></li> 
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div> 
-	<section class="kode-uptodate">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<h2>stay up-to-dated</h2>
-				</div>
-				<div class="col-md-8">
-					<div class="row">
-						<div class="col-md-3">
-							<div class="social-icons">
-								<ul>
-									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-9">
-							<div class="input-container">
-								<input type="text" placeholder="Your E-mail Address" id="sub-2">
-								<button>Subscribe</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-    <!--CONTENT END-->
+	
     <footer class="footer-3">
         <div class="container">
             <div class="row">
@@ -367,91 +198,13 @@
                     <div class="widget widget-categories">
                         <h2>Information</h2>
                         <ul>
-                            <li><a href="#">Specials</a></li> 
-                            <li><a href="#">New products</a></li> 
-                            <li><a href="#">Best sellers</a></li> 
-                            <li><a href="#">Contact us</a></li> 
+                            <li><a href="homepage.html">Home Page</a></li> 
+                            <li><a href="books-detail.html">Books</a></li> 
+                            <li><a href="contact-us.html">Contact us</a></li> 
                             <li><a href="#">Terms of use</a></li> 
-                            <li><a href="#">Sitemap</a></li>  
                         </ul>
                     </div>
                 </div>
-                <!--CATEGORY WIDGET END-->
-                <!--LATEST NEWS WIDGET START-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget widget-latest-news">
-                        <h2>Lates News</h2>
-                        <ul>
-                            <li>
-                                <div class="kode-thumb"><a href="#"><img src="images/latest-news.png" alt=""></a></div>
-                                <div class="kode-text">
-                                    <p>Phasellus risusa Aliowm</p>
-                                    <p>14 December 2015</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="kode-thumb"><a href="#"><img src="images/latest-news.png" alt=""></a></div>
-                                <div class="kode-text">
-                                    <p>Phasellus risusa Aliowm</p>
-                                    <p>14 December 2015</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="kode-thumb"><a href="#"><img src="images/latest-news.png" alt=""></a></div>
-                                <div class="kode-text">
-                                    <p>Phasellus risusa Aliowm</p>
-                                    <p>14 December 2015</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="kode-thumb"><a href="#"><img src="images/latest-news.png" alt=""></a></div>
-                                <div class="kode-text">
-                                    <p>Phasellus risusa Aliowm</p>
-                                    <p>14 December 2015</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!--LATEST NEWS WIDGET END-->
-                <!--TWITTER WIDGET START-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget widget-flickr">
-                        <h2>Flickr Gallery </h2>
-                        <ul>
-                            <li>
-                                <a href="#"><img src="images/gallery1.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="images/gallery2.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="images/gallery3.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="images/gallery4.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="images/gallery5.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="images/gallery6.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="images/gallery4.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="images/gallery5.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="images/gallery6.png" alt=""></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!--TWITTER WIDGET END-->
-                
-                <!--NEWSLETTER START-->
                 <div class="col-md-3 col-sm-6">
                     <div class="widget widget-contact-info">
                         <h2>get in touch</h2>
@@ -475,7 +228,7 @@
                                 <i class="fa fa-envelope-o"></i>
                                 <div class="kode-text">
                                     <h4>Email Address</h4>
-                                    <a href="#">Info@thelibrary.com</a>
+                                    <a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
                                 </div>
                             </li>
                         </ul>                        
@@ -485,12 +238,20 @@
             </div>
         </div>
     </footer>
-    <div class="copyrights">
-    	<div class="container">
-        	<p>Copyrights © 2015-16 KodeForest. All rights reserved</p>
-            <div class="cards"><img src="images/cards.png" alt=""></div>
+
+	<footer class="footer-2">
+		<div class="container">
+        	<div class="lib-copyrights">
+                <p>Copyrights © 2022 Library. All rights reserved</p>
+                <div class="social-icon">
+                    <a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
+                </div>
+            </div>
+			<div class="back-to-top">
+				<a href="#home"><i class="fa fa-angle-up"></i></a>
+			</div>
         </div>
-    </div>
+	</footer>
 </div>
 <!--WRAPPER END-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
