@@ -72,6 +72,14 @@ public class LibraryServiceImpl implements LibraryService{
 		return book;
 		
 	}
+
+	public Book searchBook(String bookname) throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = getTheConnection();
+		Book book = new Book();
+		book = ld.searchBook(connection, bookname);
+		return book;
+	}
 	
 	
 

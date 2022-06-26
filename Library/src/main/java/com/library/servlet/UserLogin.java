@@ -60,12 +60,14 @@ public class UserLogin extends HttpServlet {
 			{
 				HttpSession httpSession=request.getSession();
 				httpSession.setAttribute("loginBean", login2);
-
 				RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
 				dispatcher.forward(request, response);
 			}
 			else
 			{
+				request.setAttribute("invalidlogin", "invalid user details");
+//				RequestDispatcher dispatcher=request.getRequestDispatcher("Login.jsp");
+//				dispatcher.forward(request, response);
 				RequestDispatcher dispatcher=request.getRequestDispatcher("login.jsp");
 				dispatcher.forward(request, response);
 			}

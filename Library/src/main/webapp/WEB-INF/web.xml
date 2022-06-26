@@ -69,4 +69,24 @@
     <servlet-name>LogoutUser</servlet-name>
     <url-pattern>/LogoutUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserLoginEnter</display-name>
+    <servlet-name>UserLoginEnter</servlet-name>
+    <servlet-class>com.library.servlet.UserLoginEnter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLoginEnter</servlet-name>
+    <url-pattern>/UserLoginEnter</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BookSearch</display-name>
+    <servlet-name>BookSearch</servlet-name>
+    <servlet-class>com.library.servlet.BookSearch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookSearch</servlet-name>
+    <url-pattern>/BookSearch</url-pattern>
+  </servlet-mapping>
 </web-app>

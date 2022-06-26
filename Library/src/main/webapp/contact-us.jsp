@@ -47,75 +47,8 @@
 <!--WRAPPER START-->
 <div class="wrapper kode-header-class-3">
 	<!--HEADER START-->
-	<header class="header-3">
-    	<div class="container">
-            <div class="logo-container">
-            	<div class="row">
-                	<div class="col-md-3">
-                    	 <!--LOGO START-->
-                        <div class="logo">
-                            <a href="#"><img src="images/logo-2.png" alt=""></a>
-                        </div>
-                        <!--LOGO END-->
-                    </div>
-                    <div class="col-md-9">
-                    	<div class="top-strip">
-                            <div class="pull-left">
-                                <p>Welcome To Library</p>
-                            </div>
-                            <div class="social-icon">
-                                <a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                    	<div class="kode-navigation">
-						   <ul>
-								<li><a href="homepage.html" >Home</a>
-								</li>
-								
-								<li><a href="about-us.html">About Us</a></li>
-								<li><a href="books.html">Our Books</a>
-									<ul>
-										<li><a href="books-detail.html">Book</a></li>                                
-									</ul>
-								</li>
-								<li><a href="authors.html">Authors</a>
-									<ul>
-										<li><a href="authors.html">Authors</a></li>
-										<li><a href="author-detail.html">Authors Detail</a></li>										
-									</ul>
-								</li>			
-								<li class="last"><a href="contact-us.html">Contact Us</a></li>
-							</ul>
-						</div>
-                        
-						<div id="kode-responsive-navigation" class="dl-menuwrapper">
-							<button class="dl-trigger">Open Menu</button>
-                            <ul class="dl-menu">
-								<li><a href="homepage.html" >Home</a>
-								</li>
-								
-								<li><a href="about-us.html">About Us</a></li>
-								<li><a href="books.html">Our Books</a>
-									<ul>
-										<li><a href="books-detail.html">Book</a></li>                                
-									</ul>
-								</li>
-								<li><a href="authors.html">Authors</a>
-									<ul>
-										<li><a href="authors.html">Authors</a></li>
-										<li><a href="author-detail.html">Authors Detail</a></li>										
-									</ul>
-								</li>			
-								<li class="last"><a href="contact-us.html">Contact Us</a></li>
-							</ul>
-						</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!--HEADER END-->
+	<%@ include file="Header.jsp" %>
+	<!--HEADER END-->
     <!--BANNER START-->
     <div class="kode-inner-banner">
     	<div class="kode-page-heading">

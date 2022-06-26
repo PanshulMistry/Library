@@ -78,6 +78,7 @@ public class LibraryDaoImpl implements LibraryDao{
 		connection.close();
 
 		return login2;
+		
 	}
 
 	public Book getBookDetails(Connection connection, int bookId) throws SQLException {
@@ -106,6 +107,33 @@ public class LibraryDaoImpl implements LibraryDao{
 		connection.close();
 		return book;
 		
+	}
+
+	public Book searchBook(Connection connection, String bookname) throws SQLException {
+		// TODO Auto-generated method stub
+		String selQuery="select * from book_table where lower(book_name)=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+		preparedStatement.setString(1, bookname);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		Book book = new Book();
+		if (resultSet != null) {
+			while (resultSet.next()) {
+				book.setBook_id(resultSet.getInt("book_id"));
+				book.setBook_name(resultSet.getString("book_name"));
+				book.setBook_author(resultSet.getString("book_author"));
+				book.setPublish_date(resultSet.getDate("publish_date"));
+				book.setBook_description(resultSet.getString("book_description"));				
+				byte[] imagedata=resultSet.getBytes("book_img");
+				if(null!=imagedata && imagedata.length>0)
+				{
+					String imgstring=Base64.getEncoder().encodeToString(imagedata);
+					book.setImgstring(imgstring);
+				}
+			}
+		}
+		resultSet.close();
+		connection.close();
+		return book;	
 	}
 	
 	

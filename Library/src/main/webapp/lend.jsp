@@ -1,5 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<%@page import="com.library.bean.Login"%>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -38,7 +39,22 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-
+<style>
+    table, th, td
+    {
+        border: 3px double black;
+        text-align: center;
+    }
+    #returnid
+    {
+        font-size: 15px;
+        padding: 2px 15px;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+</style>
 <body>
 
 <div id="loader-wrapper">
@@ -48,77 +64,71 @@
 	<div class="loader-section section-right"></div>
 
 </div>
-<%HttpSession httpSession=request.getSession(false);
-  Login login=(Login)httpSession.getAttribute("loginBean");	%>
 <!--WRAPPER START-->
 <div class="wrapper kode-header-class-3">
-<%if(login==null){ %>
-              <%response.sendRedirect("login.jsp");%>
-              <%} else {%>
 	<!--HEADER START-->
-<%@ include file="Header.jsp" %>
-	<!-- HEADER END -->
-    <div class="kode-banner">
-    	<ul class="bxslider">
-            
-        	<li>
-            	<img src="homepage/banner-1.png" alt="">
-                <div class="kode-caption-2">
-                	<h5>Are you searching a book...?</h5>
-                	<h2>Biggest Library</h2>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor emque laudantium, totam rem aperiam.ipsam voluptatem.</p>
-				
-                </div>
-            </li>
-
-            <li>
-            	<img src="homepage/banner-2.png" alt="">
-                <div class="kode-caption-2">
-                	<h5>Are you searching a book...?</h5>
-                	<h2>Biggest Library</h2>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor emque laudantium, totam rem aperiam.ipsam voluptatem.</p>
-				
-                </div>
-            </li>
-
-            <li>
-            	<img src="homepage/banner-3.png" alt="">
-                <div class="kode-caption-2">
-                	<h5>Are you searching a book...?</h5>
-                	<h2>Biggest Library</h2>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor emque laudantium, totam rem aperiam.ipsam voluptatem.</p>				
-                </div>
-            </li>
-        </ul>
+	<%@ include file="Header.jsp" %>
+	</div>
+    <div class="kode-inner-banner">
+    	<div class="kode-page-heading">
+        	<h2>Lend Records</h2>
+            <ol class="breadcrumb">
+              <li><a href="index.jsp">Home</a></li>
+              <li class="active">Lend</li>
+            </ol>
+        </div>
     </div>
-
-<!-- 	<div class="search-section"> -->
-<!-- 		<div class="container"> -->
-<!-- 			  <div class="tab-content"> -->
-<!-- 					<div class="form-container"> -->
-<!-- 						<div class="row"> -->
-<!--                             <form action="/search" method="get"> -->
-<!--                                 <div class="col-md-3 col-sm-4"> -->
-<!--                                     <input style="text-align:center;" type="text" name="bookname" placeholder="Book Name"> -->
-<!--                                 </div> -->
-<!--                                 <div class="col-md-3 col-sm-12"> -->
-<!--                                     <button type="submit">Search Book</button> -->
-<!--                                 </div> -->
-<!--                             </form> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			  </div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
+<br>
+<br>
+<br>
+<br>
 
 <div class="kode-content">
     
-
+        <section>
+            <div class="container">
+            	<table>
+                    <thead>
+                        <th>
+                            Sr No
+                        </th>
+                        <th>
+                            Book Name
+                        </th>
+                        <th>
+                            Lend Date
+                        </th>
+                        <th>
+                            Returning
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                Atul Book
+                            </td>
+                            <td>
+                                Today
+                            </td>
+                            <td style="align-items:center ;">
+                                <form action="/return" method="post">
+                                    <input type="hidden" name="" value="bookid">
+                                    <button id="returnid" type="submit">Return</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+           
+            
+        </section>
 
     </div>   
     <!--CONTENT END-->
-
     <footer class="footer-3">
         <div class="container">
             <div class="row">
@@ -164,7 +174,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <img src="images/gallery2.png" height="300px" width="400px" alt="">                
+                    <img src="images/lendrecords.png" height="300px" width="400px" alt="">                
                 </div>
                 <!--NEWSLETTER START END-->
             </div>
@@ -174,7 +184,7 @@
 	<footer class="footer-2">
 		<div class="container">
         	<div class="lib-copyrights">
-                <p>Copyrights Â© 2022 Library. All rights reserved</p>
+                <p>Copyrights © 2022 Library. All rights reserved</p>
                 <div class="social-icon">
                     <a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
                 </div>
@@ -203,6 +213,5 @@
 <script src="js/jquery.bookblock.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script src="js/functions.js"></script>
-<%} %>
 </body>
 </html>

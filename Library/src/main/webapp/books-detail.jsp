@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="com.library.bean.Login"%>
 <%@page import="com.library.bean.Book"%>
 <html lang="en">
 <head>
@@ -46,77 +47,22 @@
 
 </div>
 <!--WRAPPER START-->
+<%
+	 HttpSession httpSession = request.getSession(false);
+     Login login = (Login) httpSession.getAttribute("loginBean");
+	%>
+
+	<%
+		if (login == null) {
+	%>
+	<%
+		response.sendRedirect("login.jsp");
+	%>
+	<%} else { %>
 <%Book book=(Book)request.getAttribute("bookdetails"); %>
 <div class="wrapper kode-header-class-3">
-	<header class="header-3">
-    	<div class="container">
-            <div class="logo-container">
-            	<div class="row">
-                	<div class="col-md-3">
-                    	 <!--LOGO START-->
-                        <div class="logo">
-                            <a href="#"><img src="images/logo-2.png" alt=""></a>
-                        </div>
-                        <!--LOGO END-->
-                    </div>
-                    <div class="col-md-9">
-                    	<div class="top-strip">
-                            <div class="pull-left">
-                                <p>Welcome To Library</p>
-                            </div>
-                            <div class="social-icon">
-                                <a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                    	<div class="kode-navigation">
-						   <ul>
-								<li><a href="index.jsp" >Home</a>
-								</li>
-								
-								<li><a href="about-us.jsp">About Us</a></li>
-								<li><a href="BooksShow">Our Books</a>
-									<ul>
-										<li><a href="BookDetail">Book</a></li>                                
-									</ul>
-								</li>
-								<li><a href="authors.jsp">Authors</a>
-									<ul>
-										<li><a href="authors.jsp">Authors</a></li>
-										<li><a href="author-detail.jsp">Authors Detail</a></li>										
-									</ul>
-								</li>			
-								<li class="last"><a href="contact-us.jsp">Contact Us</a></li>
-							</ul>
-						</div>
-                        
-						<div id="kode-responsive-navigation" class="dl-menuwrapper">
-							<button class="dl-trigger">Open Menu</button>
-                            <ul class="dl-menu">
-								<li><a href="index.jsp" >Home</a>
-								</li>
-								
-								<li><a href="about-us.jsp">About Us</a></li>
-								<li><a href="BooksShow">Our Books</a>
-									<ul>
-										<li><a href="BookDetail">Book</a></li>                                
-									</ul>
-								</li>
-								<li><a href="authors.jsp">Authors</a>
-									<ul>
-										<li><a href="authors.jsp">Authors</a></li>
-										<li><a href="author-detail.jsp">Authors Detail</a></li>										
-									</ul>
-								</li>			
-								<li class="last"><a href="contact-us.jsp">Contact Us</a></li>
-							</ul>
-						</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!--HEADER END-->
+	<%@ include file="Header.jsp" %>
+	<!--HEADER END-->
     <!--BANNER START-->
     <div class="kode-inner-banner">
     	<div class="kode-page-heading">
@@ -127,27 +73,7 @@
             </ol>
         </div>
     </div>
-    <!--BANNER END-->
-    <div class="search-section">
-        <div class="container">
-			  <!-- Tab panes -->
-			  <div class="tab-content">
-				<div role="tabpanel" class="tab-pane active">
-					<div class="form-container">
-						<div class="row">
-							<div class="col-md-3 col-sm-4">
-								<input type="text" placeholder="Enter Book Name">
-							</div>
 
-							<div class="col-md-3 col-sm-12 ">
-								<button>Search</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			  </div>
-		</div>
-    </div>
     <!--CONTENT START-->
     <div class="kode-content padding-tb-50">
     	<div class="container">
@@ -163,7 +89,7 @@
                             </div>
                             <div class="col-md-7">
                                 <div class="kode-text">
-                        /        	<h2><%=book.getBook_name() %></h2>
+                               	<h2><%=book.getBook_name() %></h2>
                                     <div class="product-price">
                                         <p>Author : <span class="color"><%=book.getBook_author()%></span></p>
                                     </div>
@@ -415,5 +341,6 @@
 <script src="js/dl-menu/modernizr.custom.js"></script>
 <script src="js/dl-menu/jquery.dlmenu.js"></script>
 <script src="js/functions.js"></script>
+<%} %>
 </body>
 </html>

@@ -2,8 +2,6 @@ package com.library.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,15 +16,15 @@ import com.library.service.LibraryService;
 import com.library.service.impl.LibraryServiceImpl;
 
 /**
- * Servlet implementation class BooksShow
+ * Servlet implementation class BookSearch
  */
-public class BooksShow extends HttpServlet {
+public class BookSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BooksShow() {
+    public BookSearch() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,7 +34,15 @@ public class BooksShow extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//doGet(request, response);
 		HttpSession httpSession = request.getSession(false);
 		Login login=(Login)httpSession.getAttribute("loginBean");
 		
@@ -47,29 +53,25 @@ public class BooksShow extends HttpServlet {
 		else
 		{
 		LibraryService ls = new LibraryServiceImpl();
-		
-		List<Book> bookList = new ArrayList<Book>();
-		
+		String bookname = request.getParameter("bookname");
+		System.out.println("Book Name is:"+bookname);
+		Book book = new Book();
 		try {
-			bookList = ls.getBooks();
+			book = ls.searchBook(bookname);
+			
+			request.setAttribute("booksearch", book);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("books.jsp");
+			dispatcher.forward(request, response);
+		
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		request.setAttribute("books", bookList);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("books.jsp");
-		dispatcher.forward(request, response);
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		
 	}
 
 }

@@ -49,80 +49,13 @@
 <!--WRAPPER START-->
 <div class="wrapper kode-header-class-3">
 	<!--HEADER START-->
-	<header class="header-3">
-    	<div class="container">
-            <div class="logo-container">
-            	<div class="row">
-                	<div class="col-md-3">
-                    	 <!--LOGO START-->
-                        <div class="logo">
-                            <a href="#"><img src="images/logo-2.png" alt=""></a>
-                        </div>
-                        <!--LOGO END-->
-                    </div>
-                    <div class="col-md-9">
-                    	<div class="top-strip">
-                            <div class="pull-left">
-                                <p>Welcome To Library</p>
-                            </div>
-                            <div class="social-icon">
-                                <a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                    	<div class="kode-navigation">
-						   <ul>
-								<li><a href="index.jsp" >Home</a>
-								</li>
-								
-								<li><a href="about-us.jsp">About Us</a></li>
-								<li><a href="BooksShow">Our Books</a>
-									<ul>
-										<li><a href="BookDetail">Book</a></li>                                
-									</ul>
-								</li>
-								<li><a href="authors.jsp">Authors</a>
-									<ul>
-										<li><a href="authors.jsp">Authors</a></li>
-										<li><a href="author-detail.jsp">Authors Detail</a></li>										
-									</ul>
-								</li>			
-								<li class="last"><a href="contact-us.jsp">Contact Us</a></li>
-							</ul>
-						</div>
-                        
-						<div id="kode-responsive-navigation" class="dl-menuwrapper">
-							<button class="dl-trigger">Open Menu</button>
-                            <ul class="dl-menu">
-								<li><a href="homepage.jsp" >Home</a>
-								</li>
-								
-								<li><a href="about-us.jsp">About Us</a></li>
-								<li><a href="BooksShow">Our Books</a>
-									<ul>
-										<li><a href="BookDetail">Book</a></li>                                
-									</ul>
-								</li>
-								<li><a href="authors.jsp">Authors</a>
-									<ul>
-										<li><a href="authors.jsp">Authors</a></li>
-										<li><a href="author-detail.jsp">Authors Detail</a></li>										
-									</ul>
-								</li>			
-								<li class="last"><a href="contact-us.jsp">Contact Us</a></li>
-							</ul>
-						</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+<%@ include file="Header.jsp" %>
 
     <div class="kode-inner-banner">
     	<div class="kode-page-heading">
         	<h2>About us</h2>
             <ol class="breadcrumb">
-              <li><a href="homepage.jsp">Home</a></li>
+              <li><a href="index.jsp">Home</a></li>
               <li class="active">About Us</li>
             </ol>
         </div>
@@ -165,10 +98,10 @@
                     <div class="widget widget-categories">
                         <h2>Information</h2>
                         <ul>
-                            <li><a href="homepage.jsp">Home Page</a></li> 
+                            <li><a href="index.jsp">Home Page</a></li> 
                             <li><a href="BooksShow">Books</a></li> 
                             <li><a href="contact-us.jsp">Contact us</a></li> 
-                            <li><a href="#">Terms of use</a></li> 
+                            <!-- <li><a href="#">Terms of use</a></li>  -->
                         </ul>
                     </div>
                 </div>
@@ -187,19 +120,22 @@
                                 <i class="fa fa-phone"></i>
                                 <div class="kode-text">
                                     <h4>phone Number</h4>
-                                    <p>+55(62) 55258-4570</p>
-                                    <p>+55(62) 55258-4570</p>
+                                    <p><a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a></p>
+                                    <p><a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a></p>
                                 </div>
                             </li>
                             <li>
                                 <i class="fa fa-envelope-o"></i>
                                 <div class="kode-text">
                                     <h4>Email Address</h4>
-                                    <a href="#">Info@thelibrary.com</a>
+                                    <a href="mailto:librarymailing@gmail.com">librarymailing@gmail.com</a>
                                 </div>
                             </li>
                         </ul>                        
                     </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <img src="images/library-1.png" height="300px" width="400px" alt="">                
                 </div>
                 <!--NEWSLETTER START END-->
             </div>
