@@ -37,7 +37,7 @@
 <!-- 									</ul> -->
 								</li>
 								<li class="last"><a href="contact-us.jsp">Contact Us</a></li>
-								<li class="last"><a href="lend.jsp">Lend</a></li>
+								<li class="last"><a href="LendBook?page=2">Inventory</a></li>
 								<li class="last"><a href="LogoutUser">Logout</a></li>
 							</ul>
 						</div>
@@ -55,7 +55,7 @@
 <!-- 									</ul> -->
 								</li>
 								<li class="last"><a href="contact-us.jsp">Contact Us</a></li>
-								<li class="last"><a href="lend.jsp">Lend</a></li>
+								<li class="last"><a href="LendBook?page=2">Inventory</a></li>
 								<li class="last"><a href="LogoutUser">Logout</a></li>
 							</ul>
 						</div>

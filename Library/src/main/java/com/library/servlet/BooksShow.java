@@ -39,7 +39,7 @@ public class BooksShow extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession httpSession = request.getSession(false);
 		Login login=(Login)httpSession.getAttribute("loginBean");
-		
+		System.out.println("Login Username:"+login.getUser_fname());
 		if(login==null)
 		{
 			response.sendRedirect("login.jsp");

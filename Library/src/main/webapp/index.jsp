@@ -50,6 +50,7 @@
 </div>
 <%HttpSession httpSession=request.getSession(false);
   Login login=(Login)httpSession.getAttribute("loginBean");	%>
+  
 <!--WRAPPER START-->
 <div class="wrapper kode-header-class-3">
 <%if(login==null){ %>
@@ -64,7 +65,7 @@
         	<li>
             	<img src="homepage/banner-1.png" alt="">
                 <div class="kode-caption-2">
-                	<h5>Are you searching a book...?</h5>
+                	<h5><%=login.getUser_fname()%></h5>
                 	<h2>Biggest Library</h2>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor emque laudantium, totam rem aperiam.ipsam voluptatem.</p>
 				
@@ -174,9 +175,9 @@
 	<footer class="footer-2">
 		<div class="container">
         	<div class="lib-copyrights">
-                <p>Copyrights © 2022 Library. All rights reserved</p>
+                <p>Copyright &copy; 2022 Library. All rights reserved</p>
                 <div class="social-icon">
-                    <a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
+                    <a style="color:white" href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
                 </div>
             </div>
 			<div class="back-to-top">

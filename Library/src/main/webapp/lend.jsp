@@ -1,3 +1,9 @@
+<%@page import="com.library.bean.Login"%>
+<%@page import="com.library.bean.Book"%>
+<%@page import="com.library.bean.Lend"%>
+<%@page import="java.util.List"%>
+<%@page import="com.library.service.impl.LibraryServiceImpl"%>
+<%@page import="com.library.service.LibraryService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -45,15 +51,39 @@
         border: 3px double black;
         text-align: center;
     }
-    #returnid
-    {
-        font-size: 15px;
-        padding: 2px 15px;
-        text-align: center;
-        display: block;
-        margin: 0 auto;
-        border-radius: 10px;
-    }
+     #returnid 
+     { 
+         font-size: 15px; 
+         padding: 2px 15px; 
+         text-align: center; 
+         display: block; 
+         margin: 0 auto; 
+         border-radius: 10px; 
+     } 
+/*  		.button { */
+/*           padding: 15px 25px; */
+/*           font-size: 15px; */
+/*           height:20px;  */
+/*           width:100px; */
+/* /*           text-align: center; */ */
+/*           cursor: pointer; */
+/*           outline: none; */
+/*           color: #fff; */
+/*           background-color: #04AA6D; */
+/*           border: none; */
+/*           border-radius: 15px; */
+/*           box-shadow: 0 9px #999; */
+/*           font-family: "Lucida Console", monospace; */
+/*           margin-right: 45px; */
+/*           padding-bottom: 20px; */
+/*         } */
+/*         .button:hover {background-color: #3e8e41} */
+
+/*         .button:active { */
+/*           background-color: #3e8e41; */
+/*           box-shadow: 0 5px #666; */
+/*           transform: translateY(4px); */
+/*         } */
 </style>
 <body>
 
@@ -65,6 +95,18 @@
 
 </div>
 <!--WRAPPER START-->
+<%
+	 HttpSession httpSession = request.getSession(false);
+     Login login = (Login) httpSession.getAttribute("loginBean");
+	%>
+
+	<%
+		if (login == null) {
+	%>
+	<%
+		response.sendRedirect("login.jsp");
+	%>
+	<%} else { %>
 <div class="wrapper kode-header-class-3">
 	<!--HEADER START-->
 	<%@ include file="Header.jsp" %>
@@ -82,7 +124,7 @@
 <br>
 <br>
 <br>
-
+<%LibraryService ls = new LibraryServiceImpl();%>
 <div class="kode-content">
     
         <section>
@@ -99,27 +141,45 @@
                             Lend Date
                         </th>
                         <th>
-                            Returning
+                        Return
                         </th>
                     </thead>
+                    <%
+						List<Lend> lendList = (List) request.getAttribute("lendbooks");
+				    %>
+				    
                     <tbody>
+                    
+                    <%
+					   if (lendList != null) {
+					%>
+					<%int c=0; %>
+					<%   for(Lend l : lendList) {%>
+						<%Book book = ls.getBookDetails(l.getBook_id()); %>	
                         <tr>
                             <td>
-                                1
+                               <%c++;%>
+                               <%=c%>
                             </td>
                             <td>
-                                Atul Book
+                               <%=book.getBook_name()%>
                             </td>
                             <td>
-                                Today
+                           		<%=l.getLend_date()%>     
                             </td>
                             <td style="align-items:center ;">
-                                <form action="/return" method="post">
-                                    <input type="hidden" name="" value="bookid">
-                                    <button id="returnid" type="submit">Return</button>
-                                </form>
+                            <a href="GetPdfBook?bookid=<%=l.getBook_id()%>"><i class="fa fa-book fa-2x" aria-hidden="true"></i></a>
                             </td>
-                        </tr>
+                            <td style="align-items:center ;">
+<!--                                 <form action="/return" method="post"> -->
+<!--                                     <input type="hidden" name="" value="bookid"> -->
+                                    
+                                    <a href="ReturnBook?bookid=<%=l.getBook_id()%>" style="color: black;"><button id="returnid">Return</button></a>
+<!--                                 </form> -->
+                            </td>
+                         </tr>
+                         <%} %>
+                        <%} %>
                     </tbody>
                 </table>
             </div>
@@ -129,7 +189,7 @@
 
     </div>   
     <!--CONTENT END-->
-    <footer class="footer-3">
+     <footer class="footer-3">
         <div class="container">
             <div class="row">
                 <!--CATEGORY WIDGET START-->
@@ -184,9 +244,9 @@
 	<footer class="footer-2">
 		<div class="container">
         	<div class="lib-copyrights">
-                <p>Copyrights © 2022 Library. All rights reserved</p>
+                <p>Copyright &copy; 2022 Library. All rights reserved</p>
                 <div class="social-icon">
-                    <a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
+                    <a style="color:white" href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
                 </div>
             </div>
 			<div class="back-to-top">
@@ -194,7 +254,7 @@
 			</div>
         </div>
 	</footer>
-</div>
+	</div>
 <!--WRAPPER END-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -213,5 +273,6 @@
 <script src="js/jquery.bookblock.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script src="js/functions.js"></script>
+<%} %>
 </body>
 </html>

@@ -15,6 +15,21 @@ public class Book {
 	private InputStream imgstream;
 	private String imgstring;
 
+	private InputStream bookpdfstream;
+	private String bookpdfstring;
+	
+	public InputStream getBookpdfstream() {
+		return bookpdfstream;
+	}
+	public void setBookpdfstream(InputStream bookpdfstream) {
+		this.bookpdfstream = bookpdfstream;
+	}
+	public String getBookpdfstring() {
+		return bookpdfstring;
+	}
+	public void setBookpdfstring(String bookpdfstring) {
+		this.bookpdfstring = bookpdfstring;
+	}
 	public InputStream getImgstream() {
 		return imgstream;
 	}

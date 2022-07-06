@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.library.bean.Book;
+import com.library.bean.Lend;
 import com.library.bean.Login;
+import com.library.bean.Return;
 import com.library.dao.LibraryDao;
 import com.library.dao.impl.LibraryDaoImpl;
 import com.library.service.LibraryService;
@@ -52,16 +54,15 @@ public class LibraryServiceImpl implements LibraryService{
 		return bookList;
 	}
 
-	public Login userLogin(Login login) throws SQLException {
-		// TODO Auto-generated method stub
-		Connection connection = getTheConnection();
-		Login login2 = new Login();
-		System.out.println("Service Start");
-		login2 = ld.validateUser(connection,login);
-		System.out.println("Service End");
-		return login2;
-
-	}
+//	public Login userLogin(Login login) throws SQLException {
+//		// TODO Auto-generated method stub
+//		Connection connection = getTheConnection();
+//		Login login2 = new Login();
+//		login2 = ld.validateUser(connection,login);
+//		System.out.println();
+//		return login2;
+//
+//	}
 
 	public Book getBookDetails(int bookId) throws SQLException {
 		// TODO Auto-generated method stub
@@ -80,7 +81,79 @@ public class LibraryServiceImpl implements LibraryService{
 		book = ld.searchBook(connection, bookname);
 		return book;
 	}
-	
-	
 
+	public String insertLendBook(Lend lend) throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = getTheConnection();
+		String msg = ld.insertLendBook(connection, lend);
+		return msg;
+	}
+
+	public List<Lend> getlendDetails() throws SQLException {
+		Connection connection = getTheConnection();
+
+		List<Lend> lendList = new ArrayList<Lend>();
+		try {
+			lendList = ld.getLendDetails(connection);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return lendList;
+	}
+
+	public Login userLogin(String email, String pass) throws SQLException {
+		// TODO Auto-generated method stub
+		Login login;
+		Connection connection = getTheConnection();
+		login = ld.validateUser(connection, email, pass);
+		return login;
+	}
+
+	public String insertReturnBook(Return r) throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = getTheConnection();
+		String msg = ld.insertReturnBook(connection, r);
+		return msg;
+	}
+
+	public List<Return> getReturnDetails() throws SQLException {
+		Connection connection = getTheConnection();
+		List<Return> returnList = new ArrayList<Return>();
+		try {
+			returnList = ld.getReturnDetails(connection);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return returnList;	
+	}
+
+	public String deleteLendBook(int bookId) throws Exception{
+		// TODO Auto-generated method stub
+		String msg="";
+		Connection connection = getTheConnection();
+		try {
+			msg=ld.deleteLendBook(connection, bookId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return msg;
+	}
+
+	public String insertBook(Book book) throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = getTheConnection();
+		String msg = ld.insertBook(connection, book);
+		return msg;
+	}
+
+	public String updateBook(Book book) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg="";
+		Connection connection = getTheConnection();
+		msg=ld.updateBook(connection, book);
+		return msg;
+	}
 }

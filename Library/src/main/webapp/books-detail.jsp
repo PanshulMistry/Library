@@ -87,20 +87,15 @@
                                     <img src="data:image/jpg;base64,<%=book.getImgstring()%>" alt="">
                                 </div>
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-7" style="font-size:50px">
                                 <div class="kode-text">
-                               	<h2><%=book.getBook_name() %></h2>
-                                    <div class="product-price">
-                                        <p>Author : <span class="color"><%=book.getBook_author()%></span></p>
-                                    </div>
+                               	<h2><%=book.getBook_name()%></h2></br>
                                     <div class="book-text">
-<!--                                     	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p> -->
+                                        <p class="row-md-10" style="font-size:20px">Author: <%=book.getBook_author() %></p></br>
+                                        <p class="row-md-10"  style="font-size:20px">Publisher: <%=book.getPublish_date() %></p>
                                     </div>
-                                    <div class="book-text">
-                                        <p>Author: <%=book.getBook_author() %></p>
-                                        <p>Publisher: <%=book.getPublish_date() %></p>
-                                    </div>
-                                    <a href="#" class="add-to-cart">Lend</a>
+                                    <%System.out.println("BOOK:"+book.getBook_id()); %>
+                                    <a href="LendBook?page=1&book=<%=book.getBook_id()%>" class="add-to-cart">Lend</a>
                                 </div>
                             </div>
                         </div>
@@ -198,66 +193,66 @@
             </div>
                     <!--PRODUCT REVIEW TABS END-->
                     <!--RELATED PRODUCTS START-->
-                    <div class="lib-related-products">
-                        <h2>Related Books</h2>
-                        <div class="row">
-                            <!--PRODUCT GRID START-->
-                            <div class="col-md-4 col-sm-6">
-                                <div class="best-seller-pro">
-                                     <figure>
-                            	<img src="images/book7.png" alt="">
-                            </figure>
-                            <div class="kode-text">
-                            	<h3><a href="#">Burnt Siena</a></h3>
-                            </div>
-                            <div class="kode-caption">
-                            	<h3>Art History Mystery</h3>
+<!--                     <div class="lib-related-products"> -->
+<!--                         <h2>Related Books</h2> -->
+<!--                         <div class="row"> -->
+<!--                             PRODUCT GRID START -->
+<!--                             <div class="col-md-4 col-sm-6"> -->
+<!--                                 <div class="best-seller-pro"> -->
+<!--                                      <figure> -->
+<!--                             	<img src="images/book7.png" alt=""> -->
+<!--                             </figure> -->
+<!--                             <div class="kode-text"> -->
+<!--                             	<h3><a href="#">Burnt Siena</a></h3> -->
+<!--                             </div> -->
+<!--                             <div class="kode-caption"> -->
+<!--                             	<h3>Art History Mystery</h3> -->
                             
-                                <p>Sara Wisseman</p>
-                                <p class="price">$334.50</p>
-                                <a href="#" class="add-to-cart">Add To Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--PRODUCT GRID END-->
-                            <!--PRODUCT GRID START-->
-                            <div class="col-md-4 col-sm-6">
-                                <div class="best-seller-pro">
-                                    <figure>
-                            	<img src="images/book8.png" alt="">
-                            </figure>
-                            <div class="kode-text">
-                            	<h3><a href="#">Chrysalis</a></h3>
-                            </div>
-                            <div class="kode-caption">
-                            	<h3>The Brave Girl</h3>
+<!--                                 <p>Sara Wisseman</p> -->
+<!--                                 <p class="price">$334.50</p> -->
+<!--                                 <a href="#" class="add-to-cart">Add To Cart</a> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             PRODUCT GRID END -->
+<!--                             PRODUCT GRID START -->
+<!--                             <div class="col-md-4 col-sm-6"> -->
+<!--                                 <div class="best-seller-pro"> -->
+<!--                                     <figure> -->
+<!--                             	<img src="images/book8.png" alt=""> -->
+<!--                             </figure> -->
+<!--                             <div class="kode-text"> -->
+<!--                             	<h3><a href="#">Chrysalis</a></h3> -->
+<!--                             </div> -->
+<!--                             <div class="kode-caption"> -->
+<!--                             	<h3>The Brave Girl</h3> -->
                            
-                                <p>William S.</p>
+<!--                                 <p>William S.</p> -->
                                 
-                                    </div>
-                                </div>
-                            </div>
-                            <!--PRODUCT GRID END-->
-                            <!--PRODUCT GRID START-->
-                            <div class="col-md-4">
-                                <div class="best-seller-pro">
-                                    <figure>
-                            	<img alt="" src="images/book4.png">
-                            </figure>
-                            <div class="kode-text">
-                            	<h3><a href="#">Dead Water</a></h3>
-                            </div>
-                            <div class="kode-caption">
-                            	<h3>Dead Water in the Sea</h3>
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             PRODUCT GRID END -->
+<!--                             PRODUCT GRID START -->
+<!--                             <div class="col-md-4"> -->
+<!--                                 <div class="best-seller-pro"> -->
+<!--                                     <figure> -->
+<!--                             	<img alt="" src="images/book4.png"> -->
+<!--                             </figure> -->
+<!--                             <div class="kode-text"> -->
+<!--                             	<h3><a href="#">Dead Water</a></h3> -->
+<!--                             </div> -->
+<!--                             <div class="kode-caption"> -->
+<!--                             	<h3>Dead Water in the Sea</h3> -->
                             
-                                <p>Ann Grannger</p>
+<!--                                 <p>Ann Grannger</p> -->
                                 
-                                    </div>
-                                </div>
-                            </div>
-                            <!--PRODUCT GRID END-->
-                        </div>
-                    </div>
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             PRODUCT GRID END -->
+<!--                         </div> -->
+<!--                     </div> -->
                     <!--RELATED PRODUCTS END-->
                 </div>
             </div>
@@ -274,9 +269,9 @@
                         <h2>Information</h2>
                         <ul>
                             <li><a href="index.jsp">Home Page</a></li> 
-                            <li><a href="books-detail.jsp">Books</a></li> 
+                            <li><a href="BooksShow">Books</a></li> 
                             <li><a href="contact-us.jsp">Contact us</a></li> 
-                            <li><a href="#">Terms of use</a></li> 
+                            <!-- <li><a href="#">Terms of use</a></li>  -->
                         </ul>
                     </div>
                 </div>
@@ -295,19 +290,22 @@
                                 <i class="fa fa-phone"></i>
                                 <div class="kode-text">
                                     <h4>phone Number</h4>
-                                    <p>+55(62) 55258-4570</p>
-                                    <p>+55(62) 55258-4570</p>
+                                    <p><a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a></p>
+                                    <p><a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a></p>
                                 </div>
                             </li>
                             <li>
                                 <i class="fa fa-envelope-o"></i>
                                 <div class="kode-text">
                                     <h4>Email Address</h4>
-                                    <a href="#">Info@thelibrary.com</a>
+                                    <a href="mailto:librarymailing@gmail.com">librarymailing@gmail.com</a>
                                 </div>
                             </li>
                         </ul>                        
                     </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <img src="images/gallery2.png" height="300px" width="400px" alt="">                
                 </div>
                 <!--NEWSLETTER START END-->
             </div>
@@ -317,9 +315,9 @@
 	<footer class="footer-2">
 		<div class="container">
         	<div class="lib-copyrights">
-                <p>Copyrights © 2022 Library. All rights reserved</p>
+                <p>Copyright &copy; 2022 Library. All rights reserved</p>
                 <div class="social-icon">
-                    <a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
+                    <a style="color:white" href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
                 </div>
             </div>
 			<div class="back-to-top">

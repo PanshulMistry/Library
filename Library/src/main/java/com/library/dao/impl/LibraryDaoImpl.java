@@ -13,7 +13,9 @@ import java.util.Base64;
 import java.util.List;
 
 import com.library.bean.Book;
+import com.library.bean.Lend;
 import com.library.bean.Login;
+import com.library.bean.Return;
 import com.library.dao.LibraryDao;
 
 public class LibraryDaoImpl implements LibraryDao{
@@ -33,7 +35,7 @@ public class LibraryDaoImpl implements LibraryDao{
 			book.setBook_author(resultSet.getString("book_author"));
 			book.setPublish_date(resultSet.getDate("publish_date"));
 			book.setBook_description(resultSet.getString("book_description"));
-
+		
 			byte[] imagedata=resultSet.getBytes("book_img");
 			if(null!=imagedata && imagedata.length>0)
 			{
@@ -48,38 +50,37 @@ public class LibraryDaoImpl implements LibraryDao{
 		return bookList;
 	}
 
-	public Login validateUser(Connection connection, Login login) throws SQLException {
-		// TODO Auto-generated method stub
-		//System.out.println("mail " + email + " " + " pass " + pass);
-		ResultSet resultSet;
-		System.out.println("Dao Start");
-		String selQuery = "select * from login_table";
-		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
-		resultSet = preparedStatement.executeQuery();
-		String email = "";
-		String pass = "";
-		Login login2 = new Login();
-		System.out.println("Dao email:"+login.getLogin_email());
-		System.out.println("Dao pass:"+login.getLogin_pass());
-		System.out.println("Dao ends.");
-		if (resultSet != null) {
-			while (resultSet.next()) {
-				email = resultSet.getString("login_email");
-				pass = resultSet.getString("login_password");
-				if(email.equalsIgnoreCase(login.getLogin_email()) && pass.equalsIgnoreCase(login.getLogin_pass()))
-				{
-					login2.setLogin_email(email);
-					login2.setLogin_pass(pass);
-				}
-			}
-		}
-		resultSet.close();
-		preparedStatement.close();
-		connection.close();
-
-		return login2;
-		
-	}
+//	public Login validateUser(Connection connection, Login login) throws SQLException {
+//		// TODO Auto-generated method stub
+//		//System.out.println("mail " + email + " " + " pass " + pass);
+//		ResultSet resultSet;
+//		String selQuery = "select * from login_table";
+//		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+//		resultSet = preparedStatement.executeQuery();
+//		String email = "";
+//		String pass = "";
+//		Login login2 = new Login();
+//		System.out.println("Dao email:"+login.getLogin_email());
+//		System.out.println("Dao pass:"+login.getLogin_pass());
+//		System.out.println("Dao ends.");
+//		if (resultSet != null) {
+//			while (resultSet.next()) {
+//				email = resultSet.getString("login_email");
+//				pass = resultSet.getString("login_password");
+//				if(email.equalsIgnoreCase(login.getLogin_email()) && pass.equalsIgnoreCase(login.getLogin_pass()))
+//				{
+//					login2.setLogin_email(email);
+//					login2.setLogin_pass(pass);
+//				}
+//			}
+//		}
+//		resultSet.close();
+//		preparedStatement.close();
+//		connection.close();
+//
+//		return login2;
+//		
+//	}
 
 	public Book getBookDetails(Connection connection, int bookId) throws SQLException {
 		// TODO Auto-generated method stub
@@ -100,6 +101,12 @@ public class LibraryDaoImpl implements LibraryDao{
 				{
 					String imgstring=Base64.getEncoder().encodeToString(imagedata);
 					book.setImgstring(imgstring);
+				}
+				byte[] pdfdata=resultSet.getBytes("book_pdf");
+				if(null!=pdfdata && pdfdata.length>0)
+				{
+					String pdfstring=Base64.getEncoder().encodeToString(pdfdata);
+					book.setBookpdfstring(pdfstring);
 				}
 			}
 		}
@@ -134,6 +141,177 @@ public class LibraryDaoImpl implements LibraryDao{
 		resultSet.close();
 		connection.close();
 		return book;	
+	}
+
+	public String insertLendBook(Connection connection, Lend lend) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg = "";
+		String insQuery = "insert into lendbook_table(login_id,book_id,lend_date) values(?,?,?)";
+		PreparedStatement preparedStatement = connection.prepareStatement(insQuery);
+		preparedStatement.setInt(1, lend.getLogin_id());
+		preparedStatement.setInt(2, lend.getBook_id());
+		preparedStatement.setDate(3, lend.getLend_date());
+		int insRows = preparedStatement.executeUpdate();
+		if (insRows > 0) {
+			msg = "Book Lend all data inserted";
+
+		} else {
+			msg = "Book Lend insertion failed";
+		}
+		return msg;
+	}
+	
+	public List<Lend> getLendDetails(Connection connection) throws SQLException {
+		// TODO Auto-generated method stub
+		List<Lend> lendList = new ArrayList<Lend>();
+		String selQuery="select * from lendbook_table";
+		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		
+		while(resultSet.next())
+		{
+			Lend lend = new Lend();
+			lend.setLend_id(resultSet.getInt("lend_id"));
+			lend.setLogin_id(resultSet.getInt("login_id"));
+			lend.setBook_id(resultSet.getInt("book_id"));
+			lend.setLend_date(resultSet.getDate("lend_date"));
+			lendList.add(lend);
+		}
+		
+		resultSet.close();
+		connection.close();
+		return lendList;
+	}
+
+	public Login validateUser(Connection connection, String email, String pass) throws SQLException {
+		// TODO Auto-generated method stub
+		System.out.println("mail " + email + " " + " pass " + pass);
+		Login login = null;
+		ResultSet resultSet = null;
+	
+		String selQuery = "select * from login_table where login_email=? and login_password=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+		preparedStatement.setString(1, email);
+		preparedStatement.setString(2, pass);
+		resultSet = preparedStatement.executeQuery();
+
+		if (resultSet != null) {
+			while (resultSet.next()) {
+				login = new Login();
+				login.setLogin_id(resultSet.getInt("login_id"));
+				login.setLogin_pass(resultSet.getString("login_password"));
+				login.setMobile_number(resultSet.getString("mobile_number"));
+				login.setLogin_email(resultSet.getString("login_email"));
+				login.setUser_fname(resultSet.getString("user_fname"));
+				login.setUser_lname(resultSet.getString("user_lname"));
+			}
+		}
+
+		System.out.println("LOGIN ID IS:"+login.getLogin_id());
+		System.out.println("USER NAME IS:"+login.getUser_fname());
+		System.out.println("USER LAST NAME IS:"+login.getUser_lname());
+		resultSet.close();
+		preparedStatement.close();
+		connection.close();
+
+		return login;
+	}
+
+	public String insertReturnBook(Connection connection, Return r) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg = "";
+		String insQuery = "insert into returnbook_table(logintable_id,booktable_id,return_date) values(?,?,?)";
+		PreparedStatement preparedStatement = connection.prepareStatement(insQuery);
+		preparedStatement.setInt(1, r.getLogintable_id());
+		preparedStatement.setInt(2, r.getBooktable_id());
+		preparedStatement.setDate(3, r.getReturn_date());
+		int insRows = preparedStatement.executeUpdate();
+		if (insRows > 0) {
+			msg = "Book Return all data inserted";
+
+		} else {
+			msg = "Book Return insertion failed";
+		}
+		return msg;
+	}
+
+	public List<Return> getReturnDetails(Connection connection) throws SQLException {
+		// TODO Auto-generated method stub
+		List<Return> returnList = new ArrayList<Return>();
+		String selQuery="select * from returnbook_table";
+		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		
+		while(resultSet.next())
+		{
+			Return r = new Return();
+			r.setReturn_id(resultSet.getInt("return_id"));
+			r.setLogintable_id(resultSet.getInt("logintable_id"));
+			r.setBooktable_id(resultSet.getInt("booktable_id"));
+			r.setReturn_date(resultSet.getDate("return_date"));
+			returnList.add(r);
+		}
+		
+		resultSet.close();
+		connection.close();
+		return returnList;
+	}
+
+	public String deleteLendBook(Connection connection, int bookId) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg = "";
+		String delQuery = "delete from lendbook_table where book_id=?";
+		PreparedStatement ps = connection.prepareStatement(delQuery);
+		ps.setInt(1, bookId);
+		int delrows = ps.executeUpdate();
+		if (delrows > 0) {
+			msg = "LendBook Deleted Successfully.";
+		} else {
+			msg = "LendBook Deleting Failed.";
+		}
+		return msg;
+	}
+
+	public String insertBook(Connection connection, Book book) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg = "";
+		String insQuery = "insert into book_table(book_name,book_author,book_img,publish_date,book_description,book_pdf) values(?,?,?,?,?,?)";
+		PreparedStatement ps = connection.prepareStatement(insQuery);
+		ps.setString(1, book.getBook_name());
+		ps.setString(2, book.getBook_author());
+		ps.setBlob(3, book.getImgstream());
+		ps.setDate(4, book.getPublish_date());
+		ps.setString(5, book.getBook_description());
+		ps.setBlob(6, book.getBookpdfstream());
+		int insRows = ps.executeUpdate();
+		if (insRows > 0) {
+			msg = "Book data all inserted";
+
+		} else {
+			msg = "Book data insertion failed";
+		}
+		return msg;
+	}
+
+	public String updateBook(Connection connection, Book book) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg = "";
+		String updateQ = "update book_table set book_name=?,book_author=?,book_img=COALESCE(?,book_img),publish_date=?,book_description=?,book_pdf=COALESCE(?,book_pdf) where book_id=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(updateQ);
+		preparedStatement.setString(1, book.getBook_name());
+		preparedStatement.setString(2, book.getBook_author());
+		preparedStatement.setBlob(3, book.getImgstream());
+		preparedStatement.setDate(4, book.getPublish_date());
+		preparedStatement.setString(5, book.getBook_description());
+		preparedStatement.setBlob(6, book.getBookpdfstream());
+		preparedStatement.setInt(7, book.getBook_id());
+		int updateServices = preparedStatement.executeUpdate();
+		if (updateServices > 0) {
+			msg = "Update success.";
+		} else {
+			msg = "Update failed";
+		}
+		return msg;
 	}
 	
 	

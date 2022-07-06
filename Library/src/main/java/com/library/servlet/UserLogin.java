@@ -44,38 +44,53 @@ public class UserLogin extends HttpServlet {
 		String email=request.getParameter("email");
 		String pass=request.getParameter("pass");
 		System.out.println("entered details "+email+" "+pass);
+		
 		Login login = new Login();
-		login.setLogin_email(email);
-		login.setLogin_pass(pass);
-		System.out.println("----------");
-		System.out.println("Servlet Login email:"+login.getLogin_email());
-		System.out.println("Servlet Login pass:"+login.getLogin_pass());
-		Login login2 = new Login();
-		try
-		{
-			login2=ls.userLogin(login);
-			System.out.println("Database user Email:"+login2.getLogin_email());
-			System.out.println("Database Password:"+login2.getLogin_pass());
-			if(login2.getLogin_email()!=null && login2.getLogin_pass()!=null)
+		
+		try {
+			login=ls.userLogin(email,pass);
+			
+			
+			if(login!=null)
 			{
-				HttpSession httpSession=request.getSession();
-				httpSession.setAttribute("loginBean", login2);
-				RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
-				dispatcher.forward(request, response);
-			}
-			else
-			{
-				request.setAttribute("invalidlogin", "invalid user details");
+//					response.getWriter().append("welcome User");
+				System.out.println("servlet login fname:"+login.getUser_fname());
+				System.out.println("servlet login lname:"+login.getUser_lname());
+//		Login login = new Login();
+//		login.setLogin_email(email);
+//		login.setLogin_pass(pass);
+//		System.out.println("----------");
+//		System.out.println("Servlet Login email:"+login.getLogin_email());
+//		System.out.println("Servlet Login pass:"+login.getLogin_pass());
+//		Login login2 = new Login();
+//		try
+//		{
+//			login2=ls.userLogin(login);
+//			System.out.println("Database user Email:"+login2.getLogin_email());
+//			System.out.println("Database Password:"+login2.getLogin_pass());
+//			if(login2.getLogin_email()!=null && login2.getLogin_pass()!=null)
+//			{
+//				HttpSession httpSession=request.getSession();
+//				httpSession.setAttribute("loginBean", login2);
+//				RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
+//				dispatcher.forward(request, response);
+//			}
+//			else
+//			{
+//				request.setAttribute("invalidlogin", "invalid user details");
 //				RequestDispatcher dispatcher=request.getRequestDispatcher("Login.jsp");
 //				dispatcher.forward(request, response);
-				RequestDispatcher dispatcher=request.getRequestDispatcher("login.jsp");
-				dispatcher.forward(request, response);
+				if(login.getLogin_email()!=null && login.getLogin_pass()!=null)
+				{
+					HttpSession httpSession=request.getSession();
+					httpSession.setAttribute("loginBean", login);
+					RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
+					dispatcher.forward(request, response);
+				}
 			}
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }

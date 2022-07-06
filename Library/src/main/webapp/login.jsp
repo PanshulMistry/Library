@@ -31,7 +31,7 @@
 							<form action="UserLogin" method="post">
 							<div class="form-outline form-white mb-4">
 							
-								Email:<input type="email" id="typeEmailX" autocomplete="off" autofocus name="email" required placeholder="Email"
+								Email:<input type="email" id="typeEmailX" autofocus name="email" required placeholder="Email"
 									class="form-control form-control-lg" /> 
 <!-- 									<label class="form-label" for="typeEmailX">Email</label> -->
 							</div>
