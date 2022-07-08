@@ -87,7 +87,7 @@ public class ReturnBook extends HttpServlet {
 		List<Return> returnList = new ArrayList<Return>();
 
 		try {
-			returnList = ls.getReturnDetails();
+			returnList = ls.getReturnUser(loginId);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

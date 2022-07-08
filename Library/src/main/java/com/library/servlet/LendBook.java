@@ -48,12 +48,13 @@ public class LendBook extends HttpServlet {
 		if (login == null) {
 			response.sendRedirect("login.jsp");
 		} else {
+			int loginId = login.getLogin_id();
 			if (page == 1) {
 				String bookid = request.getParameter("book");
 				System.out.println("BOOK LEND SERVLET");
 				
 				Lend lend = new Lend();
-				int loginId = login.getLogin_id();
+				
 				int bookId = Integer.parseInt(bookid);
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				java.util.Date date = new java.util.Date();
@@ -80,7 +81,7 @@ public class LendBook extends HttpServlet {
 				List<Lend> lendList = new ArrayList<Lend>();
 
 				try {
-					lendList = ls.getlendDetails();
+					lendList = ls.getLendUser(loginId);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -94,7 +95,7 @@ public class LendBook extends HttpServlet {
 				List<Lend> lendList1 = new ArrayList<Lend>();
 
 				try {
-					lendList1 = ls.getlendDetails();
+					lendList1 = ls.getLendUser(loginId);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

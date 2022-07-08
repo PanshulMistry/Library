@@ -29,6 +29,47 @@
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
 ></script>
+<script src="assets/js/jquery-3.5.1.min.js"></script>
+
+<script>
+	//checks email already registered or not in the system
+// 	$(document).ready(function() {
+
+// 		$(".form-submit").attr('disabled', 'disabled');
+// 		$("input[type=email]").blur(function() {
+// 			//alert("hey there");
+// 			$("#msg").empty();
+// 			var str = $("#email").val();
+// 			if (str.length == 0) {
+// 			} else {
+// 				$.get("CheckEmail", {
+// 					email : str
+// 				}).done(function(data) {
+// 					if (data == 'true') {
+// 						//alert("email already exists");
+// 						$(".form-submit").attr('disabled', 'disabled');
+
+// 						$("#msg").append("Email already exists");
+// 					} else {
+// 						$(".form-submit").removeAttr('disabled', 'disabled');
+// 						$("#msg").empty();
+
+// 					}
+// 				});
+// 			}
+// 		});
+// 	});
+	const email = document.getElementById("mail");
+
+	email.addEventListener("input", function (event) {
+	  if (email.validity.typeMismatch) {
+	    email.setCustomValidity("I am expecting an e-mail address!");
+	    email.reportValidity();
+	  } else {
+	    email.setCustomValidity("");
+	  }
+	});
+</script>
 </head>
 <body>
 <div id="loader-wrapper">
@@ -49,12 +90,12 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                <form class="mx-1 mx-md-4">
+                <form class="mx-1 mx-md-4" action="SignUpUser" method="post">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" required class="form-control" style="border-bottom: 2px solid ;"/>
+                      <input type="text" id="form3Example1c" name="firstname" required class="form-control" required="required" style="border-bottom: 2px solid ;"/>
                       <label class="form-label" for="form3Example1c">First Name</label>
                     </div>
                   </div>
@@ -62,7 +103,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" required class="form-control" style="border-bottom: 2px solid ;"/>
+                      <input type="text" id="form3Example1c" name="lastname" required class="form-control" style="border-bottom: 2px solid ;"/>
                       <label class="form-label" for="form3Example1c">Last Name</label>
                     </div>
                   </div>
@@ -70,7 +111,8 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" required style="border-bottom: 2px solid ;"  />
+                      <span id="msg" style="color: red">
+                      <input type="email" id="mail" class="form-control" name="useremail" required style="border-bottom: 2px solid ;"  />
                       <label class="form-label" for="form3Example3c">Your Email</label>
                     </div>
                   </div>
@@ -78,7 +120,8 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" required style="border-bottom: 2px solid ;"/>
+                    	<span id="msg1" style="color: red"></span>
+                      <input type="password" id="form3Example4c" class="form-control" name="userpass" required style="border-bottom: 2px solid ;"/>
                       <label class="form-label" for="form3Example4c">Password</label>
                     </div>
                   </div>
@@ -86,7 +129,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" required style="border-bottom: 2px solid ;"/>
+                      <input type="password" id="form3Example4cd" class="form-control" name="userpassrep" required style="border-bottom: 2px solid ;"/>
                       <label class="form-label" for="form3Example4cd">Repeat your password</label>
                     </div>
                   </div>
@@ -94,20 +137,14 @@
 				  <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fa fa-mobile fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="tel" id="form3Example4cd" class="form-control" required style="border-bottom: 2px solid ;"/>
+                    <span id="msg2" style="color: red"></span>
+                      <input type="tel" id="form3Example4cd" class="form-control" name="mobileno" required style="border-bottom: 2px solid ;"/>
                       <label class="form-label" for="form3Example4cd">Mobile Number</label>
                     </div>
                   </div>
-                  
-                  <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                    <label class="form-check-label" for="form2Example3">
-                      I agree all statements in <a href="#!">Terms of service</a>
-                    </label>
-                  </div>
-
+    
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">Register</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Register</button>
                   </div>
 
                 </form>

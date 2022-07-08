@@ -11,7 +11,14 @@ public class Login {
 	private String mobile_number;
 	private String user_fname;
 	private String user_lname;
+	private String user_role;
 	
+	public String getUser_role() {
+		return user_role;
+	}
+	public void setUser_role(String user_role) {
+		this.user_role = user_role;
+	}
 	public int getLogin_id() {
 		return login_id;
 	}

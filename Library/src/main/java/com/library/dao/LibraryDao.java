@@ -35,4 +35,16 @@ public interface LibraryDao {
 	public String insertBook(Connection connection,Book book) throws SQLException;
 
 	public String updateBook(Connection connection,Book book) throws SQLException;
+
+	public String deleteBook(Connection connection, int fbId) throws Exception;
+	
+	public int getLendBookDetails(Connection connection, int bookId) throws SQLException;
+
+	public List<Lend> getLendUser(Connection connection,int loginId) throws SQLException;
+
+	public List<Return> getReturnUser(Connection connection,int loginId) throws SQLException;
+
+	public String insertUser(Connection connection,Login login) throws SQLException;
+	
 }
+

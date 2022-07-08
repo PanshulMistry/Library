@@ -156,4 +156,57 @@ public class LibraryServiceImpl implements LibraryService{
 		msg=ld.updateBook(connection, book);
 		return msg;
 	}
+
+	public String deleteBook(int bookId) throws Exception {
+		// TODO Auto-generated method stub
+		String msg="";
+		Connection connection = getTheConnection();
+		try {
+			msg=ld.deleteBook(connection, bookId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return msg;
+	}
+
+	public int getLendBookDetails(int bookId) throws SQLException {
+		// TODO Auto-generated method stub
+		int c;
+		Connection connection = getTheConnection();
+		c = ld.getLendBookDetails(connection, bookId);
+		return c;
+	}
+
+	public List<Lend> getLendUser(int loginId) throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = getTheConnection();
+		List<Lend> lendList = new ArrayList<Lend>();
+		try {
+			lendList = ld.getLendUser(connection,loginId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return lendList;
+	}
+	
+	public List<Return> getReturnUser(int loginId) throws SQLException {
+		Connection connection = getTheConnection();
+		List<Return> returnList = new ArrayList<Return>();
+		try {
+			returnList = ld.getReturnUser(connection, loginId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return returnList;	
+	}
+
+	public String insertUser(Login login) throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = getTheConnection();
+		String msg = ld.insertUser(connection, login);
+		return msg;
+	}
 }

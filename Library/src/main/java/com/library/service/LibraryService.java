@@ -33,5 +33,15 @@ public interface LibraryService {
 	public String insertBook(Book book) throws SQLException;
 	
 	public String updateBook(Book book) throws SQLException;
+	
+	public String deleteBook(int bookId) throws Exception;
+	
+	public int getLendBookDetails(int bookId) throws SQLException;
+	
+	public List<Lend> getLendUser(int loginId) throws SQLException;
+	
+	public List<Return> getReturnUser(int loginId) throws SQLException;
+	
+	public String insertUser(Login login) throws SQLException;
 
 }

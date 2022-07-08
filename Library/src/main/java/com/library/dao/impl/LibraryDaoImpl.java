@@ -204,6 +204,7 @@ public class LibraryDaoImpl implements LibraryDao{
 				login.setLogin_email(resultSet.getString("login_email"));
 				login.setUser_fname(resultSet.getString("user_fname"));
 				login.setUser_lname(resultSet.getString("user_lname"));
+				login.setUser_role(resultSet.getString("user_role"));
 			}
 		}
 
@@ -313,8 +314,104 @@ public class LibraryDaoImpl implements LibraryDao{
 		}
 		return msg;
 	}
+
+	public String deleteBook(Connection connection, int bookId) throws Exception {
+		// TODO Auto-generated method stub
+		String msg = "";
+		String delQuery = "delete from book_table where book_id=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(delQuery);
+		preparedStatement.setInt(1, bookId);
+		
+		int a = preparedStatement.executeUpdate();
+		
+		if (a > 0) {
+			msg = "Books Deleted Successfully.";
+		} else {
+			msg = "Books Deleting Failed.";
+		}
+		return msg;
+
+	}
 	
+	public int getLendBookDetails(Connection connection, int bookId) throws SQLException {
+		// TODO Auto-generated method stub
+		String selQuery="select * from lendbook_table where book_id=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+		preparedStatement.setInt(1, bookId);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		int c = 0;
+		if (resultSet != null) {
+			while (resultSet.next()) {
+
+				c++;
+			}
+		}
+		return c;
+
+	}
+
+	public List<Lend> getLendUser(Connection connection, int loginId) throws SQLException {
+		// TODO Auto-generated method stub
+		List<Lend> lendList = new ArrayList<Lend>();
+		String selQuery="select * from lendbook_table where login_id=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+		preparedStatement.setInt(1, loginId);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		
+		while(resultSet.next())
+		{
+			Lend lend = new Lend();
+			lend.setLend_id(resultSet.getInt("lend_id"));
+			lend.setLogin_id(resultSet.getInt("login_id"));
+			lend.setBook_id(resultSet.getInt("book_id"));
+			lend.setLend_date(resultSet.getDate("lend_date"));
+			lendList.add(lend);
+		}
+		resultSet.close();
+		connection.close();
+		return lendList;
+	}
 	
-	
-	
+	public List<Return> getReturnUser(Connection connection, int loginId) throws SQLException {
+		// TODO Auto-generated method stub
+		List<Return> returnList = new ArrayList<Return>();
+		String selQuery="select * from returnbook_table where login_id=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+		preparedStatement.setInt(1, loginId);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		
+		while(resultSet.next())
+		{
+			Return r = new Return();
+			r.setReturn_id(resultSet.getInt("return_id"));
+			r.setLogintable_id(resultSet.getInt("logintable_id"));
+			r.setBooktable_id(resultSet.getInt("booktable_id"));
+			r.setReturn_date(resultSet.getDate("return_date"));
+			returnList.add(r);
+		}
+		resultSet.close();
+		connection.close();
+		return returnList;
+	}
+
+	public String insertUser(Connection connection, Login login) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg = "";
+		String insQuery = "insert into login_table(login_password,mobile_number,login_email,user_fname,user_lname,user_role) values(?,?,?,?,?,?)";
+		PreparedStatement ps = connection.prepareStatement(insQuery);
+		ps.setString(1, login.getLogin_pass());
+		ps.setString(2, login.getMobile_number());
+		ps.setString(3, login.getLogin_email());
+		ps.setString(4, login.getUser_fname());
+		ps.setString(5, login.getUser_lname());
+		ps.setString(6, login.getUser_role());
+		int insRows = ps.executeUpdate();
+		if (insRows > 0) {
+			msg = "User data all inserted";
+
+		} else {
+			msg = "User data insertion failed";
+		}
+		return msg;
+	}
 }

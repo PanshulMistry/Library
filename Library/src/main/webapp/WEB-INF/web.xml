@@ -199,4 +199,44 @@
     <servlet-name>AdminEditBook</servlet-name>
     <url-pattern>/AdminEditBook</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteBook</display-name>
+    <servlet-name>DeleteBook</servlet-name>
+    <servlet-class>com.library.servlet.DeleteBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteBook</servlet-name>
+    <url-pattern>/DeleteBook</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminLendDetails</display-name>
+    <servlet-name>AdminLendDetails</servlet-name>
+    <servlet-class>com.library.servlet.AdminLendDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLendDetails</servlet-name>
+    <url-pattern>/AdminLendDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminReturnDetails</display-name>
+    <servlet-name>AdminReturnDetails</servlet-name>
+    <servlet-class>com.library.servlet.AdminReturnDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminReturnDetails</servlet-name>
+    <url-pattern>/AdminReturnDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SignUpUser</display-name>
+    <servlet-name>SignUpUser</servlet-name>
+    <servlet-class>com.library.servlet.SignUpUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignUpUser</servlet-name>
+    <url-pattern>/SignUpUser</url-pattern>
+  </servlet-mapping>
 </web-app>
