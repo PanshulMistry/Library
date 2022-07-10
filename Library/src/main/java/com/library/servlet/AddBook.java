@@ -44,6 +44,19 @@ public class AddBook extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// .getWriter().append("Served at: ").append(request.getContextPath());
+		try
+		{
+		HttpSession httpSession = request.getSession(false);
+		Login login = (Login) httpSession.getAttribute("adminBean");
+		Login login1 = (Login) httpSession.getAttribute("loginBean");
+		if (login == null || login1 == null) 
+		{
+			response.sendRedirect("login.jsp");
+		}
+		}catch(NullPointerException e)
+		{
+			response.sendRedirect("login.jsp");
+		}
 	}
 
 	/**
@@ -54,8 +67,11 @@ public class AddBook extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// doGet(request, response);
+		try
+		{
 		HttpSession httpSession = request.getSession(false);
 		Login login = (Login) httpSession.getAttribute("adminBean");
+		System.out.println("Add book:"+login.getUser_fname());
 		if (login == null) {
 			response.sendRedirect("login.jsp");
 		} else {
@@ -98,6 +114,11 @@ public class AddBook extends HttpServlet {
 				e.printStackTrace();
 			}
 			System.out.println("Msg of insert is:" + msg);
+		}
+		}
+		catch(NullPointerException e)
+		{
+			response.sendRedirect("login.jsp");
 		}
 	}
 }

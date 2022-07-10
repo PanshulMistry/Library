@@ -2,6 +2,7 @@ package com.library.dao;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -46,5 +47,12 @@ public interface LibraryDao {
 
 	public String insertUser(Connection connection,Login login) throws SQLException;
 	
+	public String deleteLendUserBook(Connection connection,Date lendDate,int loginId) throws SQLException;
+	
+//	public String insertReturnUserBook(Connection connection,Date lendDate) throws SQLException;
+	
+	public String updateStock(Connection connection,Book book) throws SQLException;
+	
+	public String updateReturnStock(Connection connection,Book book) throws SQLException;
 }
 

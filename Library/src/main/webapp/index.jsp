@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<%@page import="com.library.bean.Book"%>
+<%@page import="com.library.bean.Return"%>
+<%@page import="java.sql.Date"%>
+<%@page import="com.library.bean.Lend"%>
+<%@page import="java.util.List"%>
+<%@page import="com.library.service.impl.LibraryServiceImpl"%>
+<%@page import="com.library.service.LibraryService"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.library.bean.Login"%>
 <html lang="en">
 <head>
@@ -8,6 +16,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>Book Library - Book Guide Author, Publication </title>
 <!-- CUSTOM STYLE -->
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <link href="style.css" rel="stylesheet">
 <!-- THEME TYPO -->
 <link href="css/themetypo.css" rel="stylesheet">
@@ -50,12 +59,57 @@
 </div>
 <%HttpSession httpSession=request.getSession(false);
   Login login=(Login)httpSession.getAttribute("loginBean");	%>
-  
+ <%if(login==null){ %>
+    <%response.sendRedirect("login.jsp");%>
+    <%} else {%>
+  <%System.out.println("index login:"+login.getUser_fname()); %>
 <!--WRAPPER START-->
 <div class="wrapper kode-header-class-3">
-<%if(login==null){ %>
-              <%response.sendRedirect("login.jsp");%>
-              <%} else {%>
+
+ <%
+ LibraryService ls = new LibraryServiceImpl();
+ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+ 	
+ java.util.Date firstDate; 
+ java.util.Date secondDate;
+ 
+	List<Lend> lendList = ls.getLendUser(login.getLogin_id());
+	java.util.Date date = new java.util.Date();
+	String d = sdf.format(date);
+	Date currDate = Date.valueOf(d);
+	secondDate = new java.util.Date(currDate.getTime()); 
+	String msg="";
+	String msg1="";
+	String msg2="";
+	Book book;
+	for(Lend l : lendList)
+	{
+		Date lendDate = l.getLend_date();
+		firstDate = new java.util.Date(lendDate.getTime());
+		long time_difference = secondDate.getTime() - firstDate.getTime();  
+		long days_difference = (time_difference / (1000*60*60*24)) % 365;   
+		if(days_difference==7)
+		{
+			Return r = new Return();
+			r.setBooktable_id(l.getBook_id());
+			r.setLogintable_id(login.getLogin_id());
+			r.setReturn_date(currDate);
+			msg1 = ls.insertReturnBook(r);
+			book = ls.getBookDetails(l.getBook_id());
+			msg2 = ls.updateReturnStock(book);
+			System.out.println("Update return stock is:"+msg2);
+			if(msg1!=null)
+			{
+				msg=ls.deleteLendUserBook(lendDate, login.getLogin_id());
+			}
+		}
+		if(msg!=null)
+		{
+			System.out.println("Deleted Date "+ lendDate +" record is:"+msg);
+		}
+		
+	}
+ %> 
 	<!--HEADER START-->
 <%@ include file="Header.jsp" %>
 	<!-- HEADER END -->

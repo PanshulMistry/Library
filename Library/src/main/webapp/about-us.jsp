@@ -13,6 +13,7 @@
 <!-- SHORTCODES -->
 <link href="css/shortcode.css" rel="stylesheet">
 <!-- BOOTSTRAP -->
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <link href="css/bootstrap.css" rel="stylesheet">
 <!-- COLOR FILE -->
 <link href="css/color.css" rel="stylesheet">

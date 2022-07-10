@@ -22,43 +22,53 @@ import com.library.service.impl.LibraryServiceImpl;
  */
 public class AdminLendDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AdminLendDetails() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    LibraryService ls = new LibraryServiceImpl();
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public AdminLendDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	LibraryService ls = new LibraryServiceImpl();
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		HttpSession httpSession = request.getSession(false);
-		Login login = (Login) httpSession.getAttribute("adminBean");
-		if (login == null) {
-			response.sendRedirect("login.jsp");
-		} else {
-			List<Lend> lendList = new ArrayList<Lend>();
-			try {
-				lendList = ls.getlendDetails();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			HttpSession httpSession = request.getSession(false);
+			Login login = (Login) httpSession.getAttribute("adminBean");
+			if (login == null) {
+				response.sendRedirect("login.jsp");
+			} else {
+				List<Lend> lendList = new ArrayList<Lend>();
+				try {
+					lendList = ls.getlendDetails();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				request.setAttribute("lendadmin", lendList);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("AdminLendBook.jsp");
+				dispatcher.forward(request, response);
 			}
-			request.setAttribute("lendadmin", lendList);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("AdminLendBook.jsp");
-			dispatcher.forward(request, response);
+		} catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

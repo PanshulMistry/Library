@@ -41,22 +41,26 @@ public class AdminManageBooks extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
-		HttpSession httpSession = request.getSession(false);
-		Login login = (Login) httpSession.getAttribute("adminBean");
-		if (login == null) {
-			response.sendRedirect("login.jsp");
-		} else {
-			List<Book> bookList = new ArrayList<Book>();
-			try {
-				bookList = ls.getBooks();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			HttpSession httpSession = request.getSession(false);
+			Login login = (Login) httpSession.getAttribute("adminBean");
+			if (login == null) {
+				response.sendRedirect("login.jsp");
+			} else {
+				List<Book> bookList = new ArrayList<Book>();
+				try {
+					bookList = ls.getBooks();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
-			request.setAttribute("books", bookList);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("AdminManageBook.jsp");
-			dispatcher.forward(request, response);
+				request.setAttribute("books", bookList);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("AdminManageBook.jsp");
+				dispatcher.forward(request, response);
+			}
+		} catch (NullPointerException e) {
+			response.sendRedirect("login.jsp");
 		}
 	}
 

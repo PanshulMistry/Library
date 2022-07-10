@@ -25,6 +25,7 @@
 <!-- Owl Carusel -->
 <link href="css/owl.carousel.css" rel="stylesheet">
 <!-- responsive -->
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <link href="css/responsive.css" rel="stylesheet">
 <!-- Component -->
 <link href="js/dl-menu/component.css" rel="stylesheet">

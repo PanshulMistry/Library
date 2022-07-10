@@ -9,6 +9,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>Book Library - Book Guide Author, Publication</title>
 <!-- CUSTOM STYLE -->
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <link href="style.css" rel="stylesheet">
 <!-- THEME TYPO -->
 <link href="css/themetypo.css" rel="stylesheet">

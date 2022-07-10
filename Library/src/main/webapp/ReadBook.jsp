@@ -31,6 +31,7 @@
 <!-- BX SLIDER -->
 <link href="css/jquery.bxslider.css" rel="stylesheet">
 <!-- Boostrap Slider -->
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <link href="css/bootstrap-slider.css" rel="stylesheet">
 <!-- Widgets -->
 <link href="css/widget.css" rel="stylesheet">

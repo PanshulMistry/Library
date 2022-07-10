@@ -20,6 +20,7 @@
 <!-- COLOR FILE -->
 <link href="css/color.css" rel="stylesheet">
 <!-- FONT AWESOME -->
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <!-- BX SLIDER -->
 <link href="css/jquery.bxslider.css" rel="stylesheet">
@@ -40,6 +41,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 </head>
 <body>
 <div id="loader-wrapper">
@@ -54,7 +56,6 @@
 	 HttpSession httpSession = request.getSession(false);
      Login login = (Login) httpSession.getAttribute("loginBean");
 	%>
-
 	<%
 		if (login == null) {
 	%>
@@ -71,9 +72,9 @@
     	<div class="kode-page-heading">
         	<h2>Photo Gallery</h2>
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
+              <li><a href="index.jsp">Home</a></li>
               <li><a href="#">Library</a></li>
-              <li class="active">Gallery</li>
+             
             </ol>
         </div>
     </div>
@@ -115,7 +116,9 @@
 </div>
                                 <p><%=book.getBook_author()%></p>
 <!--                                 <p class="price">$224.20</p> -->
-                                <a href="BookDetail?bookid=<%=book.getBook_id()%>" class="add-to-cart">Lend</a>
+									
+                                <a href="BookDetail?bookid=<%=book.getBook_id()%>" class="add-to-cart" style="pointer-events: none">Lend</a>
+                            
                             </div>
                         </div>
                     </div>
@@ -287,7 +290,7 @@
                         <h2>Information</h2>
                         <ul>
                             <li><a href="index.jsp">Home Page</a></li> 
-                            <li><a href="books-details.jsp">Books</a></li> 
+                            <li><a href="#">Books</a></li> 
                             <li><a href="contact-us.jsp">Contact Us</a></li> 
                           
                         </ul>

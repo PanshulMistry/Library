@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.library.bean.Login;
 import com.library.service.LibraryService;
@@ -34,6 +35,19 @@ public class SignUpUser extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		try
+		{
+		HttpSession httpSession = request.getSession(false);
+		Login login = (Login) httpSession.getAttribute("adminBean");
+		Login login1 = (Login) httpSession.getAttribute("loginBean");
+		if (login == null || login1 == null) 
+		{
+			response.sendRedirect("login.jsp");
+		}
+		}catch(NullPointerException e)
+		{
+			response.sendRedirect("login.jsp");
+		}
 	}
 
 	LibraryService ls = new LibraryServiceImpl();

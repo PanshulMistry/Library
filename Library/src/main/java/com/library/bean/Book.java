@@ -18,6 +18,14 @@ public class Book {
 	private InputStream bookpdfstream;
 	private String bookpdfstring;
 	
+	private int book_stock;
+	
+	public int getBook_stock() {
+		return book_stock;
+	}
+	public void setBook_stock(int book_stock) {
+		this.book_stock = book_stock;
+	}
 	public InputStream getBookpdfstream() {
 		return bookpdfstream;
 	}

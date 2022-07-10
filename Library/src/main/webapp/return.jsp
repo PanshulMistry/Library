@@ -26,6 +26,7 @@
 <!-- FONT AWESOME -->
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <!-- BX SLIDER -->
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <link href="css/jquery.bxslider.css" rel="stylesheet">
 <!-- Boostrap Slider -->
 <link href="css/bootstrap-slider.css" rel="stylesheet">

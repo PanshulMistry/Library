@@ -34,7 +34,20 @@ public class BookSearch extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		try
+		{
+		HttpSession httpSession = request.getSession(false);
+		Login login = (Login) httpSession.getAttribute("adminBean");
+		Login login1 = (Login) httpSession.getAttribute("loginBean");
+		if (login == null || login1 == null) 
+		{
+			response.sendRedirect("login.jsp");
+		}
+		}catch(NullPointerException e)
+		{
+			response.sendRedirect("login.jsp");
+		}
 	}
 
 	/**

@@ -7,6 +7,7 @@
 <title>Sign Up</title>
 <!-- CUSTOM STYLE -->
 <link href="style.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <!-- Widgets -->
 <link href="css/widget.css" rel="stylesheet">
 <!-- Font Awesome -->

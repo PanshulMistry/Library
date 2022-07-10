@@ -16,6 +16,7 @@
 <!-- BOOTSTRAP -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <!-- COLOR FILE -->
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <link href="css/color.css" rel="stylesheet">
 <!-- FONT AWESOME -->
 <link href="css/font-awesome.min.css" rel="stylesheet">

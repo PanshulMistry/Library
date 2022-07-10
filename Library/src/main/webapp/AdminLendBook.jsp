@@ -35,6 +35,7 @@
 <!-- responsive -->
 <link href="css/responsive.css" rel="stylesheet">
 <!-- Component -->
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <link href="js/dl-menu/component.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
 

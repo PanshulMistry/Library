@@ -1,5 +1,6 @@
 package com.library.service;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -43,5 +44,10 @@ public interface LibraryService {
 	public List<Return> getReturnUser(int loginId) throws SQLException;
 	
 	public String insertUser(Login login) throws SQLException;
+	
+	public String deleteLendUserBook(Date lendDate,int loginId) throws SQLException;
 
+	public String updateStock(Book book) throws SQLException;
+	
+	public String updateReturnStock(Book book) throws SQLException;
 }

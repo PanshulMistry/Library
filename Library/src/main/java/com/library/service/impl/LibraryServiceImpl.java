@@ -2,6 +2,7 @@ package com.library.service.impl;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -209,4 +210,34 @@ public class LibraryServiceImpl implements LibraryService{
 		String msg = ld.insertUser(connection, login);
 		return msg;
 	}
+
+	public String deleteLendUserBook(Date lendDate, int loginId) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg="";
+		Connection connection = getTheConnection();
+		try {
+			msg=ld.deleteLendUserBook(connection, lendDate,loginId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return msg;
+	}
+
+	public String updateStock(Book book) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg="";
+		Connection connection = getTheConnection();
+		msg=ld.updateStock(connection, book);
+		return msg;
+	}
+
+	public String updateReturnStock(Book book) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg="";
+		Connection connection = getTheConnection();
+		msg=ld.updateReturnStock(connection, book);
+		return msg;
+	}
+
 }

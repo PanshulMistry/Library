@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,6 +43,7 @@ public class LibraryDaoImpl implements LibraryDao{
 				String imgstring=Base64.getEncoder().encodeToString(imagedata);
 				book.setImgstring(imgstring);
 			}
+			book.setBook_stock(resultSet.getInt("book_stock"));
 			bookList.add(book);
 		}
 		
@@ -108,6 +110,7 @@ public class LibraryDaoImpl implements LibraryDao{
 					String pdfstring=Base64.getEncoder().encodeToString(pdfdata);
 					book.setBookpdfstring(pdfstring);
 				}
+				book.setBook_stock(resultSet.getInt("book_stock"));
 			}
 		}
 		resultSet.close();
@@ -136,6 +139,7 @@ public class LibraryDaoImpl implements LibraryDao{
 					String imgstring=Base64.getEncoder().encodeToString(imagedata);
 					book.setImgstring(imgstring);
 				}
+				book.setBook_stock(resultSet.getInt("book_stock"));
 			}
 		}
 		resultSet.close();
@@ -413,5 +417,71 @@ public class LibraryDaoImpl implements LibraryDao{
 			msg = "User data insertion failed";
 		}
 		return msg;
+	}
+
+	public String deleteLendUserBook(Connection connection, Date lendDate, int loginId) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg = "";
+		String delQuery = "delete from lendbook_table where lend_date=? and login_id=?";
+		PreparedStatement ps = connection.prepareStatement(delQuery);
+		ps.setDate(1, lendDate);
+		ps.setInt(2, loginId);
+		int delrows = ps.executeUpdate();
+		if (delrows > 0) {
+			msg = "LendBook For User Deleted Successfully.";
+		} else {
+			msg = "LendBook for User Deleting Failed.";
+		}
+		return msg;
+	}
+
+	public String updateStock(Connection connection, Book book) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg = "";
+		String updateQ = "update book_table set book_stock=? where book_id=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(updateQ);
+		int stock = book.getBook_stock() - 1;
+		if(stock<=7)
+		{
+			preparedStatement.setInt(1, stock);
+			preparedStatement.setInt(2, book.getBook_id());
+			int updateServices = preparedStatement.executeUpdate();
+			if (updateServices > 0) {
+				msg = "Update stock success.";
+			} else {
+				msg = "Update stock failed";
+			}
+			return msg;
+		}
+		else
+		{
+			return msg="Stock is more than 7 or less than 0.";
+		}
+		
+	}
+
+	public String updateReturnStock(Connection connection, Book book) throws SQLException {
+		// TODO Auto-generated method stub
+		String msg = "";
+		String updateQ = "update book_table set book_stock=? where book_id=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(updateQ);
+		int stock = book.getBook_stock() + 1;
+		if(stock<=7)
+		{
+			preparedStatement.setInt(1, stock);
+			preparedStatement.setInt(2, book.getBook_id());
+			int updateServices = preparedStatement.executeUpdate();
+			if (updateServices > 0) {
+				msg = "Update stock success.";
+			} else {
+				msg = "Update stock failed";
+			}
+			return msg;
+		}
+		else
+		{
+			return msg="Stock is more than 7 or less than 0.";
+		}
+		
 	}
 }

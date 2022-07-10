@@ -15,6 +15,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>Book Library - Book Guide Author, Publication </title>
 <!-- CUSTOM STYLE -->
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <link href="style.css" rel="stylesheet">
 <!-- THEME TYPO -->
 <link href="css/themetypo.css" rel="stylesheet">
@@ -141,7 +142,7 @@
                             Lend Date
                         </th>
                         <th>
-                        Return
+                        Book 
                         </th>
                     </thead>
                     <%
@@ -170,13 +171,13 @@
                             <td style="align-items:center ;">
                             <a href="GetPdfBook?bookid=<%=l.getBook_id()%>"><i class="fa fa-book fa-2x" aria-hidden="true"></i></a>
                             </td>
-                            <td style="align-items:center ;">
-<!--                                 <form action="/return" method="post"> -->
-<!--                                     <input type="hidden" name="" value="bookid"> -->
+<!--                             <td style="align-items:center ;"> -->
+<!-- <!--                                 <form action="/return" method="post"> --> 
+<!-- <!--                                     <input type="hidden" name="" value="bookid"> --> 
                                     
-                                    <a href="ReturnBook?bookid=<%=l.getBook_id()%>" style="color: black;"><button id="returnid">Return</button></a>
-<!--                                 </form> -->
-                            </td>
+<%--                                     <a href="ReturnBook?bookid=<%=l.getBook_id()%>" style="color: black;"><button id="returnid">Return</button></a> --%>
+<!-- <!--                                 </form> --> 
+<!--                             </td> -->
                          </tr>
                          <%} %>
                         <%} %>

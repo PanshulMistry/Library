@@ -16,6 +16,7 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 <!-- COLOR FILE -->
 <link href="css/color.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
 <!-- FONT AWESOME -->
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <!-- BX SLIDER -->
@@ -95,7 +96,11 @@
                                         <p class="row-md-10"  style="font-size:20px">Publisher: <%=book.getPublish_date() %></p>
                                     </div>
                                     <%System.out.println("BOOK:"+book.getBook_id()); %>
+                                    <% if(book.getBook_stock() > 0 ) {%>
                                     <a href="LendBook?page=1&book=<%=book.getBook_id()%>" class="add-to-cart">Lend</a>
+                                <%} else {  %>
+                                <p class="row-md-10" style="font-size:20px;color:red">Unavailable</p>
+                                <% } %>
                                 </div>
                             </div>
                         </div>
