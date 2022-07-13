@@ -23,19 +23,19 @@
 <!--===============================================================================================-->
 </head>
 <body>
-<%-- 	<% --%>
-<!--  	try{ -->
-<!--  	 HttpSession httpSession = request.getSession(false); -->
-<!--       Login login = (Login) httpSession.getAttribute("loginBean"); -->
-<%-- 	%> --%>
+	<%
+ 	try{
+ 	 HttpSession httpSession = request.getSession(false);
+      Login login = (Login) httpSession.getAttribute("loginBean");
+ 	%> 
 
-<%-- 	<% --%>
-<!--  		if (login != null) { -->
-<%-- 	%> --%>
-<%-- 	<% --%>
-<!--  		response.sendRedirect("index.jsp"); -->
-<%-- 	%> --%>
-<%-- 	<%} else { %> --%>
+	<%
+ 		if (login != null) {
+ 	%> 
+	<%
+ 		response.sendRedirect("index.jsp");
+	%> 
+	<%} else { %>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -80,7 +80,7 @@
 <!-- 					</div> -->
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="signup.jsp">
+						<a class="txt2" href="signup2.jsp">
 							Create your Account
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
@@ -109,10 +109,10 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-<%-- <% } %> --%>
-<%-- <%} catch(Exception e) --%>
-<!-- { -->
-<!-- 	System.out.println("Error"); -->
-<!-- } %> -->
+<% } %>
+<%} catch(Exception e)
+ { 
+ 	System.out.println("Error"); 
+ } %> 
 </body>
 </html>

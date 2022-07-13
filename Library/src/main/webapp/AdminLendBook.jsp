@@ -13,7 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Book Library - Book Guide Author, Publication </title>
+<title>Book Library - Admin | Lend Details</title>
 <!-- CUSTOM STYLE -->
 <link href="style.css" rel="stylesheet">
 <!-- THEME TYPO -->
@@ -136,6 +136,9 @@
                             Sr No
                         </th>
                         <th>
+                            User Name
+                        </th>
+                        <th>
                             Book Name
                         </th>
                         <th>
@@ -155,10 +158,15 @@
 					<%int c=0; %>
 					<%   for(Lend l : lendList) {%>
 						<%Book book = ls.getBookDetails(l.getBook_id()); %>	
+						<%Login log = ls.getUserDetails(l.getLogin_id()); %>
+						<%String msg=log.getUser_fname()+" "+log.getUser_lname();%>
                         <tr>
                             <td>
                                <%c++;%>
                                <%=c%>
+                            </td>
+                            <td>
+                            	<%=msg%>
                             </td>
                             <td>
                                <%=book.getBook_name()%>

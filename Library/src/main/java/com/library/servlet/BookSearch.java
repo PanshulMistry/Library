@@ -20,71 +20,71 @@ import com.library.service.impl.LibraryServiceImpl;
  */
 public class BookSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BookSearch() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public BookSearch() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		try
-		{
-		HttpSession httpSession = request.getSession(false);
-		Login login = (Login) httpSession.getAttribute("adminBean");
-		Login login1 = (Login) httpSession.getAttribute("loginBean");
-		if (login == null || login1 == null) 
-		{
-			response.sendRedirect("login.jsp");
-		}
-		}catch(NullPointerException e)
-		{
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			HttpSession httpSession = request.getSession(false);
+			Login login = (Login) httpSession.getAttribute("adminBean");
+			Login login1 = (Login) httpSession.getAttribute("loginBean");
+			if (login == null || login1 == null) {
+				response.sendRedirect("login.jsp");
+			}
+		} catch (NullPointerException e) {
 			response.sendRedirect("login.jsp");
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		HttpSession httpSession = request.getSession(false);
-		Login login=(Login)httpSession.getAttribute("loginBean");
-		
-		if(login==null)
-		{
+		// doGet(request, response);
+		try {
+			HttpSession httpSession = request.getSession(false);
+			Login login = (Login) httpSession.getAttribute("loginBean");
+
+			if (login == null) {
+				response.sendRedirect("login.jsp");
+			} else {
+				LibraryService ls = new LibraryServiceImpl();
+				String bookname = request.getParameter("bookname");
+				System.out.println("Book Name is:" + bookname);
+				Book book = new Book();
+				try {
+					book = ls.searchBook(bookname);
+
+					request.setAttribute("booksearch", book);
+
+					RequestDispatcher dispatcher = request.getRequestDispatcher("books.jsp");
+					dispatcher.forward(request, response);
+
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} catch (Exception e) {
 			response.sendRedirect("login.jsp");
 		}
-		else
-		{
-		LibraryService ls = new LibraryServiceImpl();
-		String bookname = request.getParameter("bookname");
-		System.out.println("Book Name is:"+bookname);
-		Book book = new Book();
-		try {
-			book = ls.searchBook(bookname);
-			
-			request.setAttribute("booksearch", book);
-			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("books.jsp");
-			dispatcher.forward(request, response);
-		
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		}
-		
-		
+
 	}
 
 }

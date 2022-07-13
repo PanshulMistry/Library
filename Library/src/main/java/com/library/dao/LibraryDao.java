@@ -54,5 +54,7 @@ public interface LibraryDao {
 	public String updateStock(Connection connection,Book book) throws SQLException;
 	
 	public String updateReturnStock(Connection connection,Book book) throws SQLException;
+
+	public Login getuserDetails(Connection connection,int loginId) throws SQLException;
 }
 

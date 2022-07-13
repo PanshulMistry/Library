@@ -484,4 +484,26 @@ public class LibraryDaoImpl implements LibraryDao{
 		}
 		
 	}
+
+	public Login getuserDetails(Connection connection, int loginId) throws SQLException {
+		// TODO Auto-generated method stub
+		String selQuery="select * from login_table where login_id=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+		preparedStatement.setInt(1, loginId);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		Login login = new Login();
+		while(resultSet.next())
+		{
+			login.setLogin_id(resultSet.getInt("login_id"));
+			login.setLogin_email(resultSet.getString("login_email"));
+			login.setLogin_pass(resultSet.getString("login_password"));
+			login.setUser_fname(resultSet.getString("user_fname"));
+			login.setUser_lname(resultSet.getString("user_lname"));
+			login.setMobile_number(resultSet.getString("mobile_number"));
+			login.setUser_role(resultSet.getString("user_role"));	
+		}
+		resultSet.close();
+		connection.close();
+		return login;
+	}
 }

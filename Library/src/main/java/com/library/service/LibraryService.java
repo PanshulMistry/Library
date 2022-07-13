@@ -50,4 +50,6 @@ public interface LibraryService {
 	public String updateStock(Book book) throws SQLException;
 	
 	public String updateReturnStock(Book book) throws SQLException;
+	
+	public Login getUserDetails(int loginId) throws SQLException;
 }

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Book Library - Book Guide Author, Publication</title>
+<title>Book Library - Admin | Add Book</title>
 <!-- CUSTOM STYLE -->
 <link href="style.css" rel="stylesheet">
 <!-- THEME TYPO -->
@@ -85,12 +85,12 @@
 				<form action="AddBook" method="post" enctype="multipart/form-data">
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<!--                         <label for="bookname">Book Name</label> -->
+							 <label for="bookname">Book Name</label>
 							<input type="text" class="form-control" autofocus id="bookname"
 								name="bookname" placeholder="Book Name">
 						</div>
 						<div class="form-group col-md-6">
-							<!--                         <label for="authorname">Author Name</label> -->
+							 <label for="authorname">Author Name</label>
 							<input type="text" class="form-control" id="authorname"
 								name="authorname" placeholder="Author Name">
 						</div>
@@ -99,12 +99,12 @@
 								class="form-control" id="bookimg" name="bookimg">
 						</div>
 						<div class="form-group col-md-6">
-							<!--                         <label for="dates">PubLish Date</label> -->
+							<label for="dates">PubLish Date</label>
 							<input type="date" class="form-control" id="publishdate"
 								name="publishdate" placeholder="Date">
 						</div>
 						<div class="form-group col-md-12" style="text-align: center;">
-							<!--                         <label for="bookdesc" >Book Description</label> -->
+							<label for="bookdesc" >Book Description</label>
 							<textarea class="form-control" id="bookdesc" name="bookdesc"
 								placeholder="Book Description"></textarea>
 						</div>

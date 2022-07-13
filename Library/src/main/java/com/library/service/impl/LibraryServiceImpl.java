@@ -240,4 +240,12 @@ public class LibraryServiceImpl implements LibraryService{
 		return msg;
 	}
 
+	public Login getUserDetails(int loginId) throws SQLException {
+		// TODO Auto-generated method stub
+		Login login = new Login();
+		Connection connection = getTheConnection();
+		login = ld.getuserDetails(connection, loginId);
+		return login;
+	}
+
 }
