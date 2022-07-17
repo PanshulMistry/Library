@@ -112,7 +112,21 @@
 							<label for="bookimg">Upload Book</label><input type="file"
 								class="form-control" id="bookpdf" name="bookpdf">
 						</div>
-
+						
+						<div class="form-group col-md-4">
+					<td class="qty">
+					<div class="quantity">
+					<label for="stocks" style="padding-right: 30px;">Book Stock</label>
+						<span class="qty-minus"
+							onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
+							class="fa fa-minus" aria-hidden="true" style="padding-top: 40px; "></i></span> <input type="text"
+							class="qty-text " id="qty" step="1" min="1" max="99" style="width:80px; height: 40px;" 
+							name="stock" value="7" readonly="readonly"> <span class="qty-plus"
+							onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; 7 ) effect.value++; return false;"><i
+							class="fa fa-plus" aria-hidden="true"></i></span>
+					</div>
+				</td>
+				</div>
 
 					</div>
 
@@ -120,7 +134,7 @@
 						<br>
 						<hr>
 						<br>
-						<button type="submit" class="btn btn-primary">Upload Book</button>
+						<button type="submit" class="btn btn-primary">Add Book</button>
 					</div>
 
 				</form>

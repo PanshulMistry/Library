@@ -50,11 +50,8 @@ public class UserLogin extends HttpServlet {
 		
 		try {
 			login=ls.userLogin(email,pass);
-			
-			
 			if(login!=null)
 			{
-//					response.getWriter().append("welcome User");
 				System.out.println("servlet login fname:"+login.getUser_fname());
 				System.out.println("servlet login lname:"+login.getUser_lname());
 
@@ -71,7 +68,7 @@ public class UserLogin extends HttpServlet {
 					{
 						HttpSession httpSession=request.getSession();
 						httpSession.setAttribute("adminBean", login);
-						RequestDispatcher dispatcher=request.getRequestDispatcher("AdminHomePage.jsp");
+						RequestDispatcher dispatcher=request.getRequestDispatcher("AdminHome.jsp");
 						dispatcher.forward(request, response);
 					}
 				}

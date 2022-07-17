@@ -56,7 +56,7 @@ public class AdminManageBooks extends HttpServlet {
 				}
 
 				request.setAttribute("books", bookList);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("AdminManageBook.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("AdminManage.jsp");
 				dispatcher.forward(request, response);
 			}
 		} catch (NullPointerException e) {

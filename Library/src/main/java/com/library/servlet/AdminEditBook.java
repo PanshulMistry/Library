@@ -91,7 +91,10 @@ public class AdminEditBook extends HttpServlet {
 					int bookId = Integer.parseInt(bid);
 					String bookname = request.getParameter("bookname");
 					String authorname = request.getParameter("authorname");
-
+					String stock = request.getParameter("stock");
+					int bookStock = Integer.parseInt(stock);
+					
+					System.out.println("Update form stock is:"+bookStock);
 					java.io.InputStream i = null;
 					java.io.InputStream inputStream = null;
 
@@ -122,6 +125,7 @@ public class AdminEditBook extends HttpServlet {
 					book.setPublish_date(publishDate);
 					book.setImgstream(i);
 					book.setBookpdfstream(inputStream);
+					book.setBook_stock(bookStock);
 
 					String msg = "";
 					try {

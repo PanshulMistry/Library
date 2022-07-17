@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -78,7 +79,10 @@ public class AddBook extends HttpServlet {
 			response.setContentType("text/html;charset=UTF-8");
 			String bookname = request.getParameter("bookname");
 			String authorname = request.getParameter("authorname");
-
+			String stock = request.getParameter("stock");
+			int bookStock = Integer.parseInt(stock);
+			
+			System.out.println("Add form stock is:"+bookStock);
 			System.out.println("Bookname:" + bookname);
 			System.out.println("Authorname:" + authorname);
 			java.io.InputStream i = null;
@@ -106,15 +110,19 @@ public class AddBook extends HttpServlet {
 			book.setPublish_date(publishDate);
 			book.setImgstream(i);
 			book.setBookpdfstream(inputStream);
+			book.setBook_stock(bookStock);
 			String msg = "";
 			try {
 				msg = ls.insertBook(book);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			System.out.println("Msg of insert is:" + msg);
-		}
+			if(msg!=null)
+			{
+				response.sendRedirect("AdminHome.jsp");
+			}
+			}
 		}
 		catch(NullPointerException e)
 		{

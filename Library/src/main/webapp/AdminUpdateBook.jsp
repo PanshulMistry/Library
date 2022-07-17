@@ -132,7 +132,7 @@
 							onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
 							class="fa fa-minus" aria-hidden="true" style="padding-top: 40px; "></i></span> <input type="text"
 							class="qty-text " id="qty" step="1" min="1" max="99" style="width:80px; height: 40px;" 
-							name="quantity" value="1" readonly="readonly"> <span class="qty-plus"
+							name="stock" value="<%=book.getBook_stock()%>" readonly="readonly"> <span class="qty-plus"
 							onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; 7 ) effect.value++; return false;"><i
 							class="fa fa-plus" aria-hidden="true"></i></span>
 					</div>

@@ -280,7 +280,7 @@ public class LibraryDaoImpl implements LibraryDao{
 	public String insertBook(Connection connection, Book book) throws SQLException {
 		// TODO Auto-generated method stub
 		String msg = "";
-		String insQuery = "insert into book_table(book_name,book_author,book_img,publish_date,book_description,book_pdf) values(?,?,?,?,?,?)";
+		String insQuery = "insert into book_table(book_name,book_author,book_img,publish_date,book_description,book_pdf,book_stock) values(?,?,?,?,?,?,?)";
 		PreparedStatement ps = connection.prepareStatement(insQuery);
 		ps.setString(1, book.getBook_name());
 		ps.setString(2, book.getBook_author());
@@ -288,6 +288,7 @@ public class LibraryDaoImpl implements LibraryDao{
 		ps.setDate(4, book.getPublish_date());
 		ps.setString(5, book.getBook_description());
 		ps.setBlob(6, book.getBookpdfstream());
+		ps.setInt(7, book.getBook_stock());
 		int insRows = ps.executeUpdate();
 		if (insRows > 0) {
 			msg = "Book data all inserted";
@@ -301,7 +302,7 @@ public class LibraryDaoImpl implements LibraryDao{
 	public String updateBook(Connection connection, Book book) throws SQLException {
 		// TODO Auto-generated method stub
 		String msg = "";
-		String updateQ = "update book_table set book_name=?,book_author=?,book_img=COALESCE(?,book_img),publish_date=?,book_description=?,book_pdf=COALESCE(?,book_pdf) where book_id=?";
+		String updateQ = "update book_table set book_name=?,book_author=?,book_img=COALESCE(?,book_img),publish_date=?,book_description=?,book_pdf=COALESCE(?,book_pdf),book_stock=? where book_id=?";
 		PreparedStatement preparedStatement = connection.prepareStatement(updateQ);
 		preparedStatement.setString(1, book.getBook_name());
 		preparedStatement.setString(2, book.getBook_author());
@@ -309,7 +310,8 @@ public class LibraryDaoImpl implements LibraryDao{
 		preparedStatement.setDate(4, book.getPublish_date());
 		preparedStatement.setString(5, book.getBook_description());
 		preparedStatement.setBlob(6, book.getBookpdfstream());
-		preparedStatement.setInt(7, book.getBook_id());
+		preparedStatement.setInt(7, book.getBook_stock());
+		preparedStatement.setInt(8, book.getBook_id());
 		int updateServices = preparedStatement.executeUpdate();
 		if (updateServices > 0) {
 			msg = "Update success.";
