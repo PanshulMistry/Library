@@ -132,10 +132,9 @@
                     <div class="widget widget-categories">
                         <h2>Information</h2>
                         <ul>
-                            <li><a href="homepage.html">Home Page</a></li> 
-                            <li><a href="books-detail.html">Books</a></li> 
+                            <li><a href="index.jsp">Home Page</a></li> 
+                            <li><a href="BooksShow">Books</a></li> 
                             <li><a href="contact-us.html">Contact us</a></li> 
-                            <li><a href="#">Terms of use</a></li> 
                         </ul>
                     </div>
                 </div>

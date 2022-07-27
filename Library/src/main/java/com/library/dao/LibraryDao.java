@@ -13,10 +13,10 @@ import com.library.bean.Return;
 
 public interface LibraryDao {
 	
-	public List<Book> getBooks(Connection connection) throws SQLException, IOException;
-
-	//public Login validateUser(Connection connection, Login login) throws SQLException;
- 
+	public List<Book> getAdminBooks(Connection connection) throws SQLException, IOException;
+	
+	public List<Book> getBooks(Connection connection,int start,int total) throws SQLException, IOException;
+	
 	public Login validateUser(Connection connection, String email, String pass) throws SQLException; 
 	
 	public Book getBookDetails(Connection connection,int bookId) throws SQLException;

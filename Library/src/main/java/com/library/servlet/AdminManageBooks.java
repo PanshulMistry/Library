@@ -49,7 +49,7 @@ public class AdminManageBooks extends HttpServlet {
 			} else {
 				List<Book> bookList = new ArrayList<Book>();
 				try {
-					bookList = ls.getBooks();
+					bookList = ls.getAdminBooks();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

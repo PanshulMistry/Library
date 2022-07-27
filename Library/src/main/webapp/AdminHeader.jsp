@@ -23,15 +23,15 @@
 
 					<div class="kode-navigation">
 						<ul>
-							<li><a href="AdminHomepage.jsp">Home</a></li>
+							<li><a href="AdminHome.jsp">Home</a></li>
 
 							<li><a href="#">Books</a>
 								<ul>
 									<li><a href="AdminAddBook.jsp">Add Book</a></li>
 									<li><a href="AdminManageBooks">Manage Books</a></li>
 								</ul></li>
-								<li><a href="AdminLendDetails">Lended Books</a></li>
-								<li><a href="AdminReturnDetails">Returned Books</a></li>
+							<li><a href="AdminLendDetails">Lended Books</a></li>
+							<li><a href="AdminReturnDetails">Returned Books</a></li>
 							<li class="last"><a href="LogoutUser">Logout</a></li>
 						</ul>
 					</div>
@@ -39,10 +39,11 @@
 					<div id="kode-responsive-navigation" class="dl-menuwrapper">
 						<button class="dl-trigger">Open Menu</button>
 						<ul class="dl-menu">
-							<li><a href="index.jsp">Home</a></li>
+							<li><a href="AdminHome.jsp">Home</a></li>
 
 							<li><a href="about-us.jsp">About Us</a></li>
-							<li><a href="BooksShow">Books</a> <!-- 									<ul> --> <!-- 										<li><a href="books-detail.html">Book</a></li>                                 -->
+							<li><a href="AdminManageBooks">Books</a> <!-- 									<ul> -->
+								<!-- 										<li><a href="books-detail.html">Book</a></li>                                 -->
 								<!-- 									</ul> --></li>
 							<li class="last"><a href="LogoutUser">Logout</a></li>
 						</ul>

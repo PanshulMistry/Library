@@ -33,12 +33,6 @@
 <link href="js/dl-menu/component.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 
 <body>
@@ -124,20 +118,23 @@
 							class="form-control" value="<%=book.getBookpdfstream()%>"
 							id="bookpdf" name="bookpdf">
 					</div>
-				<div class="form-group col-md-4">
-					<td class="qty">
-					<div class="quantity">
-					<label for="stocks" style="padding-right: 30px;">Update Stocks</label>
-						<span class="qty-minus"
-							onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
-							class="fa fa-minus" aria-hidden="true" style="padding-top: 40px; "></i></span> <input type="text"
-							class="qty-text " id="qty" step="1" min="1" max="99" style="width:80px; height: 40px;" 
-							name="stock" value="<%=book.getBook_stock()%>" readonly="readonly"> <span class="qty-plus"
-							onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; 7 ) effect.value++; return false;"><i
-							class="fa fa-plus" aria-hidden="true"></i></span>
+					<div class="form-group col-md-4">
+						<td class="qty">
+							<div class="quantity">
+								<label for="stocks" style="padding-right: 30px;">Update
+									Stocks</label> <span class="qty-minus"
+									onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) effect.value--;return false;"><i
+									class="fa fa-minus" aria-hidden="true"
+									style="padding-top: 40px;"></i></span> <input type="text"
+									class="qty-text " id="qty" step="1" min="1" max="99"
+									style="width: 80px; height: 40px;" name="stock"
+									value="<%=book.getBook_stock()%>" readonly="readonly">
+								<span class="qty-plus"
+									onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; 7 ) effect.value++; return false;"><i
+									class="fa fa-plus" aria-hidden="true"></i></span>
+							</div>
+						</td>
 					</div>
-				</td>
-				</div>
 					<div class="section-heading-1">
 						<br>
 						<hr>
@@ -163,9 +160,9 @@
 					<div class="widget widget-categories">
 						<h2>Information</h2>
 						<ul>
-							<li><a href="index.jsp">Home Page</a></li>
-							<li><a href="BooksShow">Books</a></li>
-							<li><a href="contact-us.jsp">Contact us</a></li>
+							<li><a href="AdminHome.jsp">Home Page</a></li>
+							<li><a href="AdminManageBooks">Books</a></li>
+							<li><a href="about-us.jsp">About us</a></li>
 							<!-- <li><a href="#">Terms of use</a></li>  -->
 						</ul>
 					</div>
@@ -177,17 +174,14 @@
 							<li><i class="fa fa-paper-plane"></i>
 								<div class="kode-text">
 									<h4>Address</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-										sed do eiusmod tempor.</p>
+									<p>A-1/301 Anmol Towers,Opposite Telephone
+										Exchange,Naranpura,Ahmedabad 380063</p>
 								</div></li>
 							<li><i class="fa fa-phone"></i>
 								<div class="kode-text">
 									<h4>phone Number</h4>
 									<p>
-										<a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a>
-									</p>
-									<p>
-										<a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a>
+										<a href="tel:+919662748241">+919662748241</a>
 									</p>
 								</div></li>
 							<li><i class="fa fa-envelope-o"></i>

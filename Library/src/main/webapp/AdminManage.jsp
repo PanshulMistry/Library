@@ -16,7 +16,7 @@
 <!-- BOOTSTRAP -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <!-- COLOR FILE -->
-<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico" />
 <link href="css/color.css" rel="stylesheet">
 <!-- FONT AWESOME -->
 <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -34,12 +34,6 @@
 <link href="js/dl-menu/component.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 <style>
 table, th, td {
@@ -89,7 +83,7 @@ table, th, td {
 		<div class="kode-page-heading">
 			<h2>Manage Books</h2>
 			<ol class="breadcrumb">
-				<li><a href="AdmminHomePage.jsp">Home</a></li>
+				<li><a href="AdmminHome.jsp">Home</a></li>
 				<li class="active">Manage Books</li>
 			</ol>
 		</div>
@@ -138,27 +132,19 @@ table, th, td {
 							<td><img src="data:image/jpg;base64,<%=b.getImgstring()%>"
 								alt="" width="100" height="150"></td>
 							<td><%=b.getBook_description()%></td>
-							<td style="align-items: center;">
-								<!--                                 <form action="/return" method="post"> -->
-								<!--                                     <input type="hidden" name="" value="bookid"> -->
-								<a href="AdminEditBook?page=1&bookid=<%=b.getBook_id()%>"><i
+							<td style="align-items: center;"><a
+								href="AdminEditBook?page=1&bookid=<%=b.getBook_id()%>"><i
 									class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a> <!--                                 </form> -->
 							</td>
-							<%--                              onclick="document.getElementById('<%=b.getBook_id()%>').style.display='block'" --%>
 							<td style="align-items: center;">
-							<%String var = "#"+b.getBook_id();%>
-							<a href="#" data-toggle="modal" data-target="<%=var%>">
-							<i class="fa fa-trash fa-2x" style="color: red" aria-hidden="true"></i></a>
-<!-- 							<button onclick="document.getElementById('').style.display='block'"
-								class="btn btn-danger">
-								<i class="fas fa-trash-alt"></i>
-								</button>
-								<!-- Button trigger modal --> <!-- 							<button type="button" class="btn btn-primary" data-toggle="modal" -->
-								<!-- 								data-target="#exampleModal">Launch demo modal</button> -->
-
+								<%
+								String var = "#" + b.getBook_id();
+								%> <a href="#"
+								data-toggle="modal" data-target="<%=var%>"> <i
+									class="fa fa-trash fa-2x" style="color: red" aria-hidden="true"></i></a>
 								<!-- Modal -->
 								<div class="modal fade" id="<%=b.getBook_id()%>" tabindex="-1"
-									role="dialog" aria-labelledby="<%=b.getBook_id() %>"
+									role="dialog" aria-labelledby="<%=b.getBook_id()%>"
 									aria-hidden="true">
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
@@ -177,55 +163,15 @@ table, th, td {
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary"
 													data-dismiss="modal">Close</button>
-												<a href="DeleteBook?bookid=<%=b.getBook_id()%>"><button type="button" class="btn btn-primary" style="color:white;background-color: red">Delete
-											   </button></a>
-<!-- 												<a -->
-<!-- 													style="position: absolute; left: 50%; color: black; border: 1px solid black; background-color: lightgray; padding-top: 3px; padding-bottom: 3px; padding-right: 5px; padding-left: 5px;" -->
-<!-- 													href="#" class="btn btn-secondary" data-dismiss="modal"> -->
-<!-- 													Cancel</a>  -->
-<!-- 												<a -->
-<!-- 													style="position: absolute; left: 33%; color: black; border: 1px solid black; background-color: lightgray; padding-top: 3px; padding-bottom: 3px; padding-right: 5px; padding-left: 5px;" -->
-<!-- 													href="#" -->
-<!-- 													class="btn btn-primary"> Delete</a> -->
-
+												<a href="DeleteBook?bookid=<%=b.getBook_id()%>"><button
+														type="button" class="btn btn-primary"
+														style="color: white; background-color: red">Delete
+													</button></a>
 											</div>
 										</div>
 									</div>
 								</div>
-<!-- 										<div id="#edit" class="modal" -->
-<!-- 											style="position: fixed;; top: 47%; height: 150px; width: 400px; left: 37%; border: 2px solid black; background: white;"> -->
-<!-- 											<form class="modal-content"> -->
-<!-- 												<div class="container" -->
-<!-- 													style="background-color: activeborder; color: black; border-radius: 20px;"> -->
-<!-- 													<h1> -->
-<!-- 														Delete -->
-<!-- 														<button type="button" class="close" data-dismiss="modal" -->
-<!-- 															aria-label="Close"> -->
-<!-- 															<a href="#" class="cancelbtn" -->
-<!-- 																style="color: black;"> <span aria-hidden="true">&times;</span> -->
-<!-- 															</a> -->
-<!-- 														</button> -->
-<!-- 													</h1> -->
-
-<!-- 													<p> -->
-<!-- 														Are you sure you want to delete -->
-<!-- 														? -->
-<!-- 													</p> -->
-
-<!-- 													<div class="clearfix" style="position: relative;"> -->
-<!-- 														<a -->
-<!-- 															style="position: absolute; left: 50%; color: black; border: 1px solid black; background-color: lightgray; padding-top: 3px; padding-bottom: 3px; padding-right: 5px; padding-left: 5px;" -->
-<!-- 															href="#" class="cancelbtn"> -->
-<!-- 															Cancel</a> <a -->
-<!-- 															style="position: absolute; left: 33%; color: black; border: 1px solid black; background-color: lightgray; padding-top: 3px; padding-bottom: 3px; padding-right: 5px; padding-left: 5px;" -->
-<!-- 															href="#" -->
-<!-- 															class="deletebtn"> Delete</a> -->
-<!-- 													</div> -->
-<!-- 												</div> -->
-<!-- 											</form> -->
-<!-- 										</div> -->
-								
-								</td>
+							</td>
 						</tr>
 						<%
 						}
@@ -250,9 +196,9 @@ table, th, td {
 					<div class="widget widget-categories">
 						<h2>Information</h2>
 						<ul>
-							<li><a href="homepage.html">Home Page</a></li>
-							<li><a href="books-detail.html">Books</a></li>
-							<li><a href="contact-us.html">Contact us</a></li>
+							<li><a href="AdminHome.jsp">Home Page</a></li>
+							<li><a href="AdminManageBooks">Books</a></li>
+							<li><a href="about-us.jsp">About us</a></li>
 							<!-- <li><a href="#">Terms of use</a></li>  -->
 						</ul>
 					</div>
@@ -264,17 +210,14 @@ table, th, td {
 							<li><i class="fa fa-paper-plane"></i>
 								<div class="kode-text">
 									<h4>Address</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-										sed do eiusmod tempor.</p>
+									<p>A-1/301 Anmol Towers,Opposite Telephone
+										Exchange,Naranpura,Ahmedabad 380063</p>
 								</div></li>
 							<li><i class="fa fa-phone"></i>
 								<div class="kode-text">
 									<h4>phone Number</h4>
 									<p>
-										<a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a>
-									</p>
-									<p>
-										<a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a>
+										<a href="tel:+919662748241">+919662748241</a>
 									</p>
 								</div></li>
 							<li><i class="fa fa-envelope-o"></i>
@@ -286,8 +229,7 @@ table, th, td {
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6">
-					<img src="/images/lendrecords.png" height="300px" width="400px"
-						alt="">
+					<img src="images/gallery2.png" height="300px" width="400px" alt="">
 				</div>
 				<!--NEWSLETTER START END-->
 			</div>
@@ -297,9 +239,10 @@ table, th, td {
 	<footer class="footer-2">
 		<div class="container">
 			<div class="lib-copyrights">
-				<p>Copyrights © 2022 Library. All rights reserved</p>
+				<p>Copyright &copy; 2022 Library. All rights reserved</p>
 				<div class="social-icon">
-					<a href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
+					<a style="color: white" href="mailto:librarymailing@gmail.com"
+						class="pull-left">librarymailing@gmail.com</a>
 				</div>
 			</div>
 			<div class="back-to-top">

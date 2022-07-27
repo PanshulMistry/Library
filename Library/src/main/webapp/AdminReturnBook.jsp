@@ -40,12 +40,6 @@
 <link href="js/dl-menu/component.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 <style>
     table, th, td
@@ -62,30 +56,7 @@
          margin: 0 auto; 
          border-radius: 10px; 
      } 
-/*  		.button { */
-/*           padding: 15px 25px; */
-/*           font-size: 15px; */
-/*           height:20px;  */
-/*           width:100px; */
-/* /*           text-align: center; */ */
-/*           cursor: pointer; */
-/*           outline: none; */
-/*           color: #fff; */
-/*           background-color: #04AA6D; */
-/*           border: none; */
-/*           border-radius: 15px; */
-/*           box-shadow: 0 9px #999; */
-/*           font-family: "Lucida Console", monospace; */
-/*           margin-right: 45px; */
-/*           padding-bottom: 20px; */
-/*         } */
-/*         .button:hover {background-color: #3e8e41} */
 
-/*         .button:active { */
-/*           background-color: #3e8e41; */
-/*           box-shadow: 0 5px #666; */
-/*           transform: translateY(4px); */
-/*         } */
 </style>
 <body>
 
@@ -117,7 +88,7 @@
     	<div class="kode-page-heading">
         	<h2>Return Records</h2>
             <ol class="breadcrumb">
-              <li><a href="AdminHomePage.jsp">Home</a></li>
+              <li><a href="AdminHome.jsp">Home</a></li>
               <li class="active">Return</li>
             </ol>
         </div>
@@ -188,69 +159,64 @@
 
     </div>   
     <!--CONTENT END-->
-     <footer class="footer-3">
-        <div class="container">
-            <div class="row">
-                <!--CATEGORY WIDGET START-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget widget-categories">
-                        <h2>Information</h2>
-                        <ul>
-                            <li><a href="AdminHomePage.jsp">Home Page</a></li>  
-                            <li><a href="contact-us.jsp">Contact us</a></li> 
-                            <!-- <li><a href="#">Terms of use</a></li>  -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget widget-contact-info">
-                        <h2>get in touch</h2>
-                        <ul>
-                            <li>
-                                <i class="fa fa-paper-plane"></i>
-                                <div class="kode-text">
-                                    <h4>Address</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fa fa-phone"></i>
-                                <div class="kode-text">
-                                    <h4>phone Number</h4>
-                                    <p><a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a></p>
-                                    <p><a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a></p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope-o"></i>
-                                <div class="kode-text">
-                                    <h4>Email Address</h4>
-                                    <a href="mailto:librarymailing@gmail.com">librarymailing@gmail.com</a>
-                                </div>
-                            </li>
-                        </ul>                        
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <img src="images/lendrecords.png" height="300px" width="400px" alt="">                
-                </div>
-                <!--NEWSLETTER START END-->
-            </div>
-        </div>
-    </footer>
+	<footer class="footer-3">
+		<div class="container">
+			<div class="row">
+				<!--CATEGORY WIDGET START-->
+				<div class="col-md-3 col-sm-6">
+					<div class="widget widget-categories">
+						<h2>Information</h2>
+						<ul>
+							<li><a href="AdminHome.jsp">Home Page</a></li>
+							<li><a href="AdminManageBooks">Books</a></li>
+							<li><a href="about-us.jsp">About us</a></li>
+							<!-- <li><a href="#">Terms of use</a></li>  -->
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="widget widget-contact-info">
+						<h2>get in touch</h2>
+						<ul>
+							<li><i class="fa fa-paper-plane"></i>
+								<div class="kode-text">
+									<h4>Address</h4>
+									<p>A-1/301 Anmol Towers,Opposite Telephone Exchange,Naranpura,Ahmedabad 380063</p>
+								</div></li>
+							<li><i class="fa fa-phone"></i>
+								<div class="kode-text">
+									<h4>phone Number</h4>
+									<p><a href="tel:+919662748241">+919662748241</a></p>
+								</div></li>
+							<li><i class="fa fa-envelope-o"></i>
+								<div class="kode-text">
+									<h4>Email Address</h4>
+									<a href="mailto:librarymailing@gmail.com">librarymailing@gmail.com</a>
+								</div></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<img src="images/gallery2.png" height="300px" width="400px" alt="">
+				</div>
+				<!--NEWSLETTER START END-->
+			</div>
+		</div>
+	</footer>
 
 	<footer class="footer-2">
 		<div class="container">
-        	<div class="lib-copyrights">
-                <p>Copyright &copy; 2022 Library. All rights reserved</p>
-                <div class="social-icon">
-                    <a style="color:white" href="mailto:librarymailing@gmail.com" class="pull-left">librarymailing@gmail.com</a>
-                </div>
-            </div>
+			<div class="lib-copyrights">
+				<p>Copyright &copy; 2022 Library. All rights reserved</p>
+				<div class="social-icon">
+					<a style="color: white" href="mailto:librarymailing@gmail.com"
+						class="pull-left">librarymailing@gmail.com</a>
+				</div>
+			</div>
 			<div class="back-to-top">
 				<a href="#home"><i class="fa fa-angle-up"></i></a>
 			</div>
-        </div>
+		</div>
 	</footer>
 	</div>
 <!--WRAPPER END-->

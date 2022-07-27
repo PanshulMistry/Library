@@ -45,11 +45,16 @@ public class UserLogin extends HttpServlet {
 		String email=request.getParameter("email");
 		String pass=request.getParameter("pass");
 		System.out.println("entered details "+email+" "+pass);
-		
+		System.out.println("Post ma ayu");
 		Login login = new Login();
 		
 		try {
 			login=ls.userLogin(email,pass);
+		}catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		
 			if(login!=null)
 			{
 				System.out.println("servlet login fname:"+login.getUser_fname());
@@ -73,9 +78,15 @@ public class UserLogin extends HttpServlet {
 					}
 				}
 			}
-		}
-		catch(SQLException e) {
-			e.printStackTrace();
-		}
+			else
+			{
+				request.setAttribute("msg", "Invalid Email or Password!");
+				RequestDispatcher dispatcher=request.getRequestDispatcher("login.jsp");
+				dispatcher.forward(request, response);
+			}
+//		}
+//		catch(SQLException e) {
+//			e.printStackTrace();
+//		}
 	}
 }

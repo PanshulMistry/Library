@@ -1,6 +1,5 @@
 <%@page import="java.io.PrintWriter"%>
 <%@page import="org.apache.tika.exception.TikaException"%>
-<%@page import="org.xml.sax.SAXException"%>
 <%@page import="java.io.IOException"%>
 <%@page import="org.apache.tika.parser.pdf.PDFParser"%>
 <%@page import="org.apache.tika.parser.ParseContext"%>

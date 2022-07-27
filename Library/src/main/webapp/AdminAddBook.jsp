@@ -14,7 +14,7 @@
 <!-- BOOTSTRAP -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <!-- COLOR FILE -->
-<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico" />
 <link href="css/color.css" rel="stylesheet">
 <!-- FONT AWESOME -->
 <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -32,12 +32,6 @@
 <link href="js/dl-menu/component.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 
 <body>
@@ -85,26 +79,26 @@
 				<form action="AddBook" method="post" enctype="multipart/form-data">
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							 <label for="bookname">Book Name</label>
-							<input type="text" class="form-control" autofocus id="bookname"
-								name="bookname" placeholder="Book Name">
+							<label for="bookname">Book Name</label> <input type="text"
+								class="form-control" autofocus id="bookname" name="bookname"
+								placeholder="Book Name">
 						</div>
 						<div class="form-group col-md-6">
-							 <label for="authorname">Author Name</label>
-							<input type="text" class="form-control" id="authorname"
-								name="authorname" placeholder="Author Name">
+							<label for="authorname">Author Name</label> <input type="text"
+								class="form-control" id="authorname" name="authorname"
+								placeholder="Author Name">
 						</div>
 						<div class="form-group col-md-6">
 							<label for="bookimg">Upload Book image</label><input type="file"
 								class="form-control" id="bookimg" name="bookimg">
 						</div>
 						<div class="form-group col-md-6">
-							<label for="dates">PubLish Date</label>
-							<input type="date" class="form-control" id="publishdate"
-								name="publishdate" placeholder="Date">
+							<label for="dates">PubLish Date</label> <input type="date"
+								class="form-control" id="publishdate" name="publishdate"
+								placeholder="Date">
 						</div>
 						<div class="form-group col-md-12" style="text-align: center;">
-							<label for="bookdesc" >Book Description</label>
+							<label for="bookdesc">Book Description</label>
 							<textarea class="form-control" id="bookdesc" name="bookdesc"
 								placeholder="Book Description"></textarea>
 						</div>
@@ -112,21 +106,23 @@
 							<label for="bookimg">Upload Book</label><input type="file"
 								class="form-control" id="bookpdf" name="bookpdf">
 						</div>
-						
+
 						<div class="form-group col-md-4">
-					<td class="qty">
-					<div class="quantity">
-					<label for="stocks" style="padding-right: 30px;">Book Stock</label>
-						<span class="qty-minus"
-							onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
-							class="fa fa-minus" aria-hidden="true" style="padding-top: 40px; "></i></span> <input type="text"
-							class="qty-text " id="qty" step="1" min="1" max="99" style="width:80px; height: 40px;" 
-							name="stock" value="7" readonly="readonly"> <span class="qty-plus"
-							onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; 7 ) effect.value++; return false;"><i
-							class="fa fa-plus" aria-hidden="true"></i></span>
-					</div>
-				</td>
-				</div>
+							<td class="qty">
+								<div class="quantity">
+									<label for="stocks" style="padding-right: 30px;">Book
+										Stock</label> <span class="qty-minus"
+										onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) effect.value--;return false;"><i
+										class="fa fa-minus" aria-hidden="true"
+										style="padding-top: 40px;"></i></span> <input type="text"
+										class="qty-text " id="qty" step="1" min="1" max="99"
+										style="width: 80px; height: 40px;" name="stock" value="7"
+										readonly="readonly"> <span class="qty-plus"
+										onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &lt; 7 ) effect.value++; return false;"><i
+										class="fa fa-plus" aria-hidden="true"></i></span>
+								</div>
+							</td>
+						</div>
 
 					</div>
 
@@ -155,9 +151,9 @@
 					<div class="widget widget-categories">
 						<h2>Information</h2>
 						<ul>
-							<li><a href="index.jsp">Home Page</a></li>
-							<li><a href="BooksShow">Books</a></li>
-							<li><a href="contact-us.jsp">Contact us</a></li>
+							<li><a href="AdminHome.jsp">Home Page</a></li>
+							<li><a href="AdminManageBooks">Books</a></li>
+							<li><a href="about-us.jsp">About us</a></li>
 							<!-- <li><a href="#">Terms of use</a></li>  -->
 						</ul>
 					</div>
@@ -169,17 +165,14 @@
 							<li><i class="fa fa-paper-plane"></i>
 								<div class="kode-text">
 									<h4>Address</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-										sed do eiusmod tempor.</p>
+									<p>A-1/301 Anmol Towers,Opposite Telephone
+										Exchange,Naranpura,Ahmedabad 380063</p>
 								</div></li>
 							<li><i class="fa fa-phone"></i>
 								<div class="kode-text">
 									<h4>phone Number</h4>
 									<p>
-										<a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a>
-									</p>
-									<p>
-										<a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a>
+										<a href="tel:+919662748241">+919662748241</a>
 									</p>
 								</div></li>
 							<li><i class="fa fa-envelope-o"></i>

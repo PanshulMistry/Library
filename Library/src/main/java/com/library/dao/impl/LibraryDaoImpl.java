@@ -21,10 +21,41 @@ import com.library.dao.LibraryDao;
 
 public class LibraryDaoImpl implements LibraryDao{
 
-	public List<Book> getBooks(Connection connection) throws SQLException, IOException {
+//	public List<Book> getBooks(Connection connection) throws SQLException, IOException {
+//		
+//		List<Book> bookList = new ArrayList<Book>();
+//		String selQuery="select * from book_table";
+//		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+//		ResultSet resultSet = preparedStatement.executeQuery();
+//		
+//		while(resultSet.next())
+//		{
+//			Book book = new Book();
+//			book.setBook_id(resultSet.getInt("book_id"));
+//			book.setBook_name(resultSet.getString("book_name"));
+//			book.setBook_author(resultSet.getString("book_author"));
+//			book.setPublish_date(resultSet.getDate("publish_date"));
+//			book.setBook_description(resultSet.getString("book_description"));
+//		
+//			byte[] imagedata=resultSet.getBytes("book_img");
+//			if(null!=imagedata && imagedata.length>0)
+//			{
+//				String imgstring=Base64.getEncoder().encodeToString(imagedata);
+//				book.setImgstring(imgstring);
+//			}
+//			book.setBook_stock(resultSet.getInt("book_stock"));
+//			bookList.add(book);
+//		}
+//		
+//		resultSet.close();
+//		connection.close();
+//		return bookList;
+//	}
+
+public List<Book> getBooks(Connection connection,int start,int total) throws SQLException, IOException {
 		
 		List<Book> bookList = new ArrayList<Book>();
-		String selQuery="select * from book_table";
+		String selQuery="select * from book_table limit "+(start-1)+","+total;
 		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
 		ResultSet resultSet = preparedStatement.executeQuery();
 		
@@ -51,38 +82,6 @@ public class LibraryDaoImpl implements LibraryDao{
 		connection.close();
 		return bookList;
 	}
-
-//	public Login validateUser(Connection connection, Login login) throws SQLException {
-//		// TODO Auto-generated method stub
-//		//System.out.println("mail " + email + " " + " pass " + pass);
-//		ResultSet resultSet;
-//		String selQuery = "select * from login_table";
-//		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
-//		resultSet = preparedStatement.executeQuery();
-//		String email = "";
-//		String pass = "";
-//		Login login2 = new Login();
-//		System.out.println("Dao email:"+login.getLogin_email());
-//		System.out.println("Dao pass:"+login.getLogin_pass());
-//		System.out.println("Dao ends.");
-//		if (resultSet != null) {
-//			while (resultSet.next()) {
-//				email = resultSet.getString("login_email");
-//				pass = resultSet.getString("login_password");
-//				if(email.equalsIgnoreCase(login.getLogin_email()) && pass.equalsIgnoreCase(login.getLogin_pass()))
-//				{
-//					login2.setLogin_email(email);
-//					login2.setLogin_pass(pass);
-//				}
-//			}
-//		}
-//		resultSet.close();
-//		preparedStatement.close();
-//		connection.close();
-//
-//		return login2;
-//		
-//	}
 
 	public Book getBookDetails(Connection connection, int bookId) throws SQLException {
 		// TODO Auto-generated method stub
@@ -212,9 +211,9 @@ public class LibraryDaoImpl implements LibraryDao{
 			}
 		}
 
-		System.out.println("LOGIN ID IS:"+login.getLogin_id());
-		System.out.println("USER NAME IS:"+login.getUser_fname());
-		System.out.println("USER LAST NAME IS:"+login.getUser_lname());
+//		System.out.println("LOGIN ID IS:"+login.getLogin_id());
+//		System.out.println("USER NAME IS:"+login.getUser_fname());
+//		System.out.println("USER LAST NAME IS:"+login.getUser_lname());
 		resultSet.close();
 		preparedStatement.close();
 		connection.close();
@@ -507,5 +506,37 @@ public class LibraryDaoImpl implements LibraryDao{
 		resultSet.close();
 		connection.close();
 		return login;
+	}
+
+	@Override
+	public List<Book> getAdminBooks(Connection connection) throws SQLException, IOException {
+		// TODO Auto-generated method stub
+		List<Book> bookList = new ArrayList<Book>();
+		String selQuery="select * from book_table";
+		PreparedStatement preparedStatement = connection.prepareStatement(selQuery);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		
+		while(resultSet.next())
+		{
+			Book book = new Book();
+			book.setBook_id(resultSet.getInt("book_id"));
+			book.setBook_name(resultSet.getString("book_name"));
+			book.setBook_author(resultSet.getString("book_author"));
+			book.setPublish_date(resultSet.getDate("publish_date"));
+			book.setBook_description(resultSet.getString("book_description"));
+		
+			byte[] imagedata=resultSet.getBytes("book_img");
+			if(null!=imagedata && imagedata.length>0)
+			{
+				String imgstring=Base64.getEncoder().encodeToString(imagedata);
+				book.setImgstring(imgstring);
+			}
+			book.setBook_stock(resultSet.getInt("book_stock"));
+			bookList.add(book);
+		}
+		
+		resultSet.close();
+		connection.close();
+		return bookList;
 	}
 }

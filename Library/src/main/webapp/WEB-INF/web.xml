@@ -239,4 +239,14 @@
     <servlet-name>SignUpUser</servlet-name>
     <url-pattern>/SignUpUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Books</display-name>
+    <servlet-name>Books</servlet-name>
+    <servlet-class>com.library.servlet.Books</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Books</servlet-name>
+    <url-pattern>/Books</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -11,12 +11,12 @@ import com.library.bean.Return;
 
 public interface LibraryService {
 
-	public List<Book> getBooks() throws SQLException;
+	public List<Book> getAdminBooks() throws SQLException;
+	
+	public List<Book> getBooks(int start,int total) throws SQLException;
 	
 	public Book searchBook(String bookname) throws SQLException;
-	
-	//public Login userLogin(Login login) throws SQLException;
-	
+
 	public Login userLogin(String email, String pass) throws SQLException; 
 	
 	public Book getBookDetails(int bookId) throws SQLException;

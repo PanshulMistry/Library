@@ -14,7 +14,7 @@
 <!-- BOOTSTRAP -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <!-- COLOR FILE -->
-<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico"/>
+<link rel="icon" type="image/png" href="images/icons/allpagelogo.ico" />
 <link href="css/color.css" rel="stylesheet">
 <!-- FONT AWESOME -->
 <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -32,12 +32,6 @@
 <link href="js/dl-menu/component.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 
 <body>
@@ -103,29 +97,8 @@
 			</ul>
 		</div>
 
-		<!-- 	<div class="search-section"> -->
-		<!-- 		<div class="container"> -->
-		<!-- 			  <div class="tab-content"> -->
-		<!-- 					<div class="form-container"> -->
-		<!-- 						<div class="row"> -->
-		<!--                             <form action="/search" method="get"> -->
-		<!--                                 <div class="col-md-3 col-sm-4"> -->
-		<!--                                     <input style="text-align:center;" type="text" name="bookname" placeholder="Book Name"> -->
-		<!--                                 </div> -->
-		<!--                                 <div class="col-md-3 col-sm-12"> -->
-		<!--                                     <button type="submit">Search Book</button> -->
-		<!--                                 </div> -->
-		<!--                             </form> -->
-		<!-- 						</div> -->
-		<!-- 					</div> -->
-		<!-- 				</div> -->
-		<!-- 			  </div> -->
-		<!-- 		</div> -->
-		<!-- 	</div> -->
-
 		<div class="kode-content"></div>
 		<!--CONTENT END-->
-
 		<footer class="footer-3">
 			<div class="container">
 				<div class="row">
@@ -134,9 +107,9 @@
 						<div class="widget widget-categories">
 							<h2>Information</h2>
 							<ul>
-								<li><a href="AdminHomePage.jsp">Home Page</a></li>
-								<li><a href="#">Books</a></li>
-								<li><a href="contact-us.jsp">Contact us</a></li>
+								<li><a href="AdminHome.jsp">Home Page</a></li>
+								<li><a href="AdminManageBooks">Books</a></li>
+								<li><a href="about-us.jsp">About us</a></li>
 								<!-- <li><a href="#">Terms of use</a></li>  -->
 							</ul>
 						</div>
@@ -148,17 +121,14 @@
 								<li><i class="fa fa-paper-plane"></i>
 									<div class="kode-text">
 										<h4>Address</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit, sed do eiusmod tempor.</p>
+										<p>A-1/301 Anmol Towers,Opposite Telephone
+											Exchange,Naranpura,Ahmedabad 380063</p>
 									</div></li>
 								<li><i class="fa fa-phone"></i>
 									<div class="kode-text">
 										<h4>phone Number</h4>
 										<p>
-											<a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a>
-										</p>
-										<p>
-											<a href="tel:+55(62) 55258-4570">+55(62) 55258-4570</a>
+											<a href="tel:+919662748241">+919662748241</a>
 										</p>
 									</div></li>
 								<li><i class="fa fa-envelope-o"></i>

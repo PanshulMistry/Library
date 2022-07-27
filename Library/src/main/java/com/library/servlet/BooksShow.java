@@ -46,12 +46,21 @@ public class BooksShow extends HttpServlet {
 			if (log == null) {
 				response.sendRedirect("login.jsp");
 			} else {
+				String spageid=request.getParameter("page");
+		 		int pageid=Integer.parseInt(spageid);
+		 		
+		 		int total=12;
+		 		if(pageid==1){}
+		 		else{
+		 			pageid=pageid-1;
+		 			pageid=pageid*total+1;
+		 		}
 				LibraryService ls = new LibraryServiceImpl();
 
 				List<Book> bookList = new ArrayList<Book>();
 
 				try {
-					bookList = ls.getBooks();
+					bookList = ls.getBooks(pageid, total);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

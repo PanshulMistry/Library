@@ -39,12 +39,12 @@ public class LibraryServiceImpl implements LibraryService{
 
 	}
 
-	public List<Book> getBooks() throws SQLException {
+	public List<Book> getBooks(int start,int total) throws SQLException {
 		Connection connection = getTheConnection();
 
 		List<Book> bookList = new ArrayList<Book>();
 		try {
-			bookList = ld.getBooks(connection);
+			bookList = ld.getBooks(connection,start,total);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,16 +54,6 @@ public class LibraryServiceImpl implements LibraryService{
 		}
 		return bookList;
 	}
-
-//	public Login userLogin(Login login) throws SQLException {
-//		// TODO Auto-generated method stub
-//		Connection connection = getTheConnection();
-//		Login login2 = new Login();
-//		login2 = ld.validateUser(connection,login);
-//		System.out.println();
-//		return login2;
-//
-//	}
 
 	public Book getBookDetails(int bookId) throws SQLException {
 		// TODO Auto-generated method stub
@@ -246,6 +236,24 @@ public class LibraryServiceImpl implements LibraryService{
 		Connection connection = getTheConnection();
 		login = ld.getuserDetails(connection, loginId);
 		return login;
+	}
+
+	@Override
+	public List<Book> getAdminBooks() throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = getTheConnection();
+
+		List<Book> bookList = new ArrayList<Book>();
+		try {
+			bookList = ld.getAdminBooks(connection);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bookList;
 	}
 
 }
